@@ -1,0 +1,36 @@
+// Основные точки адаптива;
+@mixin adaptive($point) {
+  @if $point == desk {
+    @media only screen and (max-width: 1439.98px) {
+      @content;
+    }
+  } @else if $point == tab-l {
+    @media only screen and (max-width: 1247.98px) {
+      @content;
+    }
+  } @else if $point == tab {
+    @media only screen and (max-width: 1023.98px) {
+      @content;
+    }
+  } @else if $point == mob-l {
+    @media only screen and (max-width: 767.98px) {
+      @content;
+    }
+  } @else if $point == mob-m {
+    @media only screen and (max-width: 374.98px) {
+      @content;
+    }
+  } @else if $point == mob {
+    @media only screen and (max-width: 320px) {
+      @content;
+    }
+  }
+}
+
+//Центрирование блока;
+@mixin push--auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}

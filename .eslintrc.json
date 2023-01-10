@@ -1,0 +1,39 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "rules": {
+        "@typescript-eslint/no-unused-vars": [2, {}],
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "extendDefaults": true,
+                "types": {
+                    "{}": false
+                }
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": ["off"],
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/ban-ts-comment": 0,
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "import/prefer-default-export": "off"
+    },
+    "parserOptions": {
+        "requireConfigFile": false,
+        "ecmaVersion": 8,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "plugins": ["react"]
+}

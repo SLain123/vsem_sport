@@ -1,0 +1,208 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.ft {
+  &_container {
+    background: $alt_back;
+  }
+}
+
+.top {
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 16px;
+    border-bottom: 1px solid $divider_primary;
+
+    @include adaptive("mob-l") {
+      padding: 30px 12px;
+    }
+  }
+
+  &_soc_block {
+    display: flex;
+    align-items: center;
+  }
+
+  &_soc_text {
+    margin-right: 24px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $label_secondary;
+    user-select: none;
+
+    @include adaptive("mob-l") {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  &_container {
+    display: grid;
+    grid-template-columns: 420px 320px 1fr;
+    column-gap: 116px;
+    padding: 4px 16px 8px 16px;
+    border-bottom: 1px solid $divider_primary;
+
+    @include adaptive("tab-l") {
+      grid-template-columns: 420px 200px 1fr;
+      column-gap: 60px;
+    }
+
+    @include adaptive("tab") {
+      grid-template-columns: 41% 1fr;
+      column-gap: 56px;
+      padding: 28px 16px 32px 16px;
+    }
+
+    @include adaptive("mob-l") {
+      padding: 8px 12px 8px 12px;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &_col {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &_bold {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: $label_primary;
+    margin: 24px 0;
+    display: block;
+
+    &:hover {
+      color: $label_secondary;
+    }
+
+    @include adaptive("mob-l") {
+      margin: 20px 0;
+    }
+  }
+
+  &_text {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.004em;
+    color: $label_secondary;
+    margin: 16px 0;
+    display: block;
+
+    &:hover {
+      color: $label_primary;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+}
+
+.extra {
+  &_container {
+    display: none;
+    border-bottom: 1px solid $divider_primary;
+    padding: 24px 16px;
+
+    @include adaptive("tab") {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      column-gap: 21%;
+    }
+
+    @include adaptive("mob-l") {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px 12px;
+    }
+  }
+
+  &_link {
+    font-size: 12px;
+    line-height: 24px;
+    color: $label_primary;
+  }
+
+  &_mob_hide {
+    @include adaptive("mob-l") {
+      display: none;
+    }
+  }
+}
+
+.down {
+  &_container {
+    display: grid;
+    grid-template-columns: 420px 320px 1fr;
+    column-gap: 116px;
+    padding: 21px 16px;
+
+    @include adaptive("tab-l") {
+      grid-template-columns: 420px 200px 1fr;
+      column-gap: 60px;
+    }
+
+    @include adaptive("tab") {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      column-gap: 21%;
+    }
+
+    @include adaptive("mob-l") {
+      grid-template-columns: 1fr;
+      padding: 20px 12px;
+    }
+  }
+
+  &_org_block {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &_org_text {
+    font-size: 12px;
+    line-height: 16px;
+    color: $label_secondary;
+    white-space: nowrap;
+    margin: 3px 0;
+
+    @include adaptive("mob-l") {
+      margin: 4px 0;
+      font-size: 11px;
+      line-height: 16px;
+      white-space: normal;
+    }
+  }
+
+  &_mail {
+    font-size: 12px;
+    line-height: 16px;
+    color: $label_primary;
+  }
+
+  &_link {
+    display: none;
+
+    @include adaptive("mob-l") {
+      display: block;
+      font-size: 12px;
+      line-height: 24px;
+      color: $label_primary;
+      margin: 8px 0 24px 0;
+    }
+  }
+}
+
+.text_end {
+  text-align: end;
+
+  @include adaptive("tab") {
+    display: none;
+  }
+}

@@ -1,0 +1,8 @@
+node_modules
+coverage
+.eslintrc
+.next
+tsconfig.json
+README.md
+next-env.d.ts
+Dockerfile
