@@ -8,7 +8,7 @@ import { MainContainer } from "components/wrappers";
 import { HrNavigation } from "./components/HrNavigation";
 
 import styles from "./Header.module.scss";
-import Logo from "public/img/logo-white.png";
+import Logo from "public/img/logo-header.png";
 
 const Header: FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -40,8 +40,8 @@ const Header: FC = () => {
         style={{ top: visible ? "0" : "-72px" }}
       >
         <MainContainer className={styles.hr_content}>
-          <Link href="change it">
-            <Image src={Logo} alt="logo" width={108} height={30} />
+          <Link href="/" className={styles.hr_logo_link}>
+            <Image src={Logo} alt="logo" width={360} height={40} />
           </Link>
           <HrNavigation />
         </MainContainer>

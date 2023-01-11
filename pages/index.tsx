@@ -8,8 +8,8 @@ const MainPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Constructor</title>
-        <meta name="description" content="Finam Constructor" />
+        <title>Vsem Sport Online</title>
+        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
       </Head>
       <BaseLayout>
         <span style={{ width: 400 }}>

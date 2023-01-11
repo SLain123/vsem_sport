@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 html,
 body {
   padding: 0;
@@ -27,6 +29,8 @@ main {
   display: flex;
   flex: 1;
   flex-direction: column;
+  background: $main_back;
+  color: $main_font;
 }
 
 a {

@@ -6,14 +6,14 @@ import styles from "../Header.module.scss";
 
 const HrNavigation: FC = () => {
   const navList = [
-    { id: 0, title: "first", link: "1" },
-    { id: 1, title: "second", link: "2" },
-    { id: 2, title: "third", link: "3" },
-    { id: 3, title: "fourts", link: "4" },
+    { id: 0, title: "Главная", link: "/" },
+    { id: 1, title: "Посмотреть программы", link: "/trainings" },
+    { id: 2, title: "Выбрать спорт", link: "/sports" },
+    { id: 3, title: "Контакты", link: "/contacts" },
   ];
 
   return (
-    <nav>
+    <nav className={styles.nav_container}>
       <ul className={styles.nav_list}>
         {navList.map(({ id, title, link }) => (
           <NavItemStandart key={id} title={title} link={link} />
