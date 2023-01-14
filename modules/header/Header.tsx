@@ -54,7 +54,7 @@ const Header: FC = () => {
       >
         <MainContainer className={styles.hr_content}>
           <div className={styles.hr_logo_link}>
-            <Image src={Logo} alt="logo" fill />
+            <Image src={Logo} alt="Логотип" fill />
           </div>
           <HrNavigation navList={navList} />
           {width < 1024 && <Humburger navList={navList} />}

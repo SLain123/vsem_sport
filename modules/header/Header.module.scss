@@ -10,6 +10,7 @@
     width: 100%;
     transition: top 0.4s ease;
     border-bottom: solid 2px $header_border;
+    z-index: 2;
   }
 
   &_logo_link {
@@ -108,7 +109,7 @@
     line-height: 28px;
     white-space: nowrap;
     color: $nav_passive;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     padding: 16px;
   }
 }
