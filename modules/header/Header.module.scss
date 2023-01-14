@@ -15,6 +15,19 @@
   &_logo_link {
     display: block;
     height: 40px;
+    width: 360px;
+    position: relative;
+    margin-top: 4px;
+
+    @include adaptive("tab-l") {
+      width: 280px;
+      height: 32px;
+    }
+
+    @include adaptive("mob-l") {
+      width: 200px;
+      height: 28px;
+    }
   }
 
   &_content {
@@ -34,6 +47,15 @@
   &_container {
     width: calc(100% - 560px);
     margin-left: auto;
+
+    @include adaptive("tab-l") {
+      width: calc(100% - 360px);
+      margin-left: 42px;
+    }
+
+    @include adaptive("tab") {
+      display: none;
+    }
   }
 
   &_list {
@@ -60,5 +82,33 @@
     &:hover {
       color: $nav_active;
     }
+  }
+}
+
+.menu {
+  &_container {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: $header_back;
+    z-index: 99999;
+    padding: 36px 24px;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &_link {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 28px;
+    white-space: nowrap;
+    color: $nav_passive;
+    text-transform: uppercase; 
+    padding: 16px;
   }
 }

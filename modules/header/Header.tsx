@@ -1,11 +1,13 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect, useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import debounce from "debounce";
 
 import { MainContainer } from "components/wrappers";
 
 import { HrNavigation } from "./components/HrNavigation";
+import { Humburger } from "./components/Humburger";
+
+import { useWindowDimensions } from "hooks";
 
 import styles from "./Header.module.scss";
 import Logo from "public/img/logo-header.png";
@@ -13,6 +15,17 @@ import Logo from "public/img/logo-header.png";
 const Header: FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const navList = useMemo(
+    () => [
+      { id: 0, title: "Главная", link: "/" },
+      { id: 1, title: "Посмотреть программы", link: "/trainings" },
+      { id: 2, title: "Выбрать спорт", link: "/sports" },
+      { id: 3, title: "Контакты", link: "/contacts" },
+    ],
+    []
+  );
+
+  const { width } = useWindowDimensions();
 
   const handleScroll = debounce(() => {
     if (window.pageYOffset > 72) {
@@ -40,10 +53,11 @@ const Header: FC = () => {
         style={{ top: visible ? "0" : "-72px" }}
       >
         <MainContainer className={styles.hr_content}>
-          <Link href="/" className={styles.hr_logo_link}>
-            <Image src={Logo} alt="logo" width={360} height={40} />
-          </Link>
-          <HrNavigation />
+          <div className={styles.hr_logo_link}>
+            <Image src={Logo} alt="logo" fill />
+          </div>
+          <HrNavigation navList={navList} />
+          {width < 1024 && <Humburger navList={navList} />}
         </MainContainer>
       </header>
       <div className={styles.hr_stub} />

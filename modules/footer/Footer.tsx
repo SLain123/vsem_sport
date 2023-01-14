@@ -9,7 +9,6 @@ import { FtDownRow } from "./components/FtDownRow";
 import styles from "./Footer.module.scss";
 
 const Footer: FC = () => {
-  
   return (
     <footer className={styles.ft_container}>
       <MainContainer>

@@ -3,9 +3,14 @@
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 106px;
+  padding: 0 36px;
 
   @include adaptive("desk") {
+    max-width: 1268px;
+    padding: 0 24px;
+  }
+
+  @include adaptive("tab-l") {
     padding: 0 16px;
   }
 

@@ -12,7 +12,7 @@ const TrainingsPage: NextPage = () => {
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
       </Head>
       <BaseLayout>
-        <span style={{ width: 400 }}>
+        <span style={{ width: 300 }}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa porro
           officia quo veniam magnam. Molestiae dolorum pariatur incidunt
           consectetur error repudiandae temporibus fuga dicta voluptatibus

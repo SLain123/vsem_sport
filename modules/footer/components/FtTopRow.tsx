@@ -7,7 +7,7 @@ import Logo from "public/img/logo-header.png";
 const FtTopRow: FC = () => {
   return (
     <div className={styles.top_container}>
-      <Image src={Logo} alt="logo" width={566} height={62} />
+      <Image src={Logo} alt="logo" fill />
     </div>
   );
 };
