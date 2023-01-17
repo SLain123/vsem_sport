@@ -4,8 +4,16 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "NunitoSans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
 }
 
 :root,
@@ -40,4 +48,30 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Oswald"), url("../public/font/Oswald.woff2") format("woff2"),
+    url("../public/font/Oswald.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NunitoSans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NunitoSans-Regular"),
+    url("../public/font/NunitoSans-Regular.woff2") format("woff2"),
+    url("../public/font/NunitoSans-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NunitoSans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("NunitoSans-Bold"),
+    url("../public/font/NunitoSans-SemiBold.woff2") format("woff2"),
+    url("../public/font/NunitoSans-SemiBold.woff") format("woff");
 }

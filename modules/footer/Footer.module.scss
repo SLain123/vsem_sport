@@ -59,6 +59,10 @@
       color: rgba(255, 255, 255, 0.38);
       margin-top: 16px;
       text-transform: uppercase;
+
+      &:hover {
+        color: $nav_active;
+      }
     }
   }
 
@@ -77,6 +81,11 @@
       letter-spacing: 0.2em;
       line-height: 1.2;
       margin-top: 32px;
+      font-family: "Oswald";
+
+      &:hover {
+        color: $nav_active;
+      }
 
       @include adaptive("tab") {
         margin-top: 24px;
@@ -88,7 +97,7 @@
     width: 95px;
     height: 95px;
     border-radius: 50%;
-    background: #0f0432;
+    background: $white;
     display: flex;
     justify-content: center;
     align-items: center;

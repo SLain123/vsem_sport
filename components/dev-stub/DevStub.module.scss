@@ -7,19 +7,14 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    background: linear-gradient(
-      90deg,
-      rgba(21, 21, 21, 1) 0%,
-      rgba(255, 255, 255, 1) 20%,
-      rgba(255, 255, 255, 1) 80%,
-      rgba(21, 21, 21, 1) 100%
-    );
   }
 
   &_img {
     position: relative;
     width: 40vw;
     height: 40vw;
+    max-height: 600px;
+    max-width: 600px;
 
     @include adaptive("tab") {
       width: 60vw;
@@ -33,13 +28,12 @@
   }
 
   &_message {
-    color: $copyright_font;
+    color: $orange;
     text-transform: uppercase;
     font-size: 32px;
     font-weight: 700;
     padding: 52px 0;
-    font-family: sans-serif;
-    background: $white;
+    font-family: "Oswald";
     width: 40vw;
     text-align: center;
     line-height: 48px;
