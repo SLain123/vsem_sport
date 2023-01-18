@@ -12,19 +12,19 @@
     display: flex;
     justify-content: center;
     position: relative;
-    width: 566px;
-    height: 62px;
+    width: 526px;
+    height: 76px;
     margin: 32px auto;
 
     @include adaptive("tab") {
       margin: 24px auto 8px auto;
       width: 420px;
-      height: 46px;
+      height: 63px;
     }
 
     @include adaptive("mob-l") {
       width: 280px;
-      height: 32px;
+      height: 42px;
     }
   }
 }

@@ -15,19 +15,19 @@
 
   &_logo_link {
     display: block;
-    height: 40px;
-    width: 360px;
+    height: 48px;
+    width: 340px;
     position: relative;
     margin-top: 4px;
 
     @include adaptive("tab-l") {
       width: 280px;
-      height: 32px;
+      height: 42px;
     }
 
     @include adaptive("mob-l") {
-      width: 200px;
-      height: 28px;
+      width: 220px;
+      height: 34px;
     }
   }
 
