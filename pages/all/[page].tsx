@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { NextPage } from "next";
-import { GetStaticProps } from "next/types";
+import { GetStaticPaths, GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
@@ -14,22 +14,29 @@ import {
   useGetAllArticlesQuery,
 } from "redux/api/articlesApi";
 
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: ["/all" + "/page"],
+  fallback: "blocking",
+});
+
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async () => {
-    store.dispatch(getAllArticles.initiate(1));
+  (store) =>
+    async ({ params }) => {
+      const page = params?.page ? Number(params.page) : 2;
+      store.dispatch(getAllArticles.initiate(page));
 
-    await Promise.all(getRunningOperationPromises());
+      await Promise.all(getRunningOperationPromises());
 
-    return {
-      props: {},
-    };
-  }
+      return {
+        props: { page },
+      };
+    }
 );
 
-const MainPage: NextPage = () => {
-  const { data } = useGetAllArticlesQuery(1);
+const ListPage: NextPage<{ page: number }> = ({ page }) => {
+  const { data } = useGetAllArticlesQuery(page);
   const articles = data?.data ? data.data : [];
-  console.log(data?.meta.pagination);
+
   return (
     <>
       <Head>
@@ -42,7 +49,7 @@ const MainPage: NextPage = () => {
 
           {data?.meta?.pagination?.pageCount && (
             <Pagination
-              page={1}
+              page={page}
               pageCount={data?.meta.pagination.pageCount}
               masterLink="/all"
               firstPageLink="/"
@@ -54,4 +61,4 @@ const MainPage: NextPage = () => {
   );
 };
 
-export default MainPage;
+export default ListPage;

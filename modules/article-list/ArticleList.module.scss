@@ -1,0 +1,76 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.artl {
+  &_container {
+    width: 100%;
+    margin-top: 64px;
+  }
+
+  &_title {
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: -2px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2e2e4;
+  }
+
+  &_list {
+    padding: 0;
+    list-style: none;
+    margin-top: 64px;
+  }
+}
+
+.item {
+  &_container {
+    margin-bottom: 64px;
+    display: flex;
+  }
+
+  &_img {
+    border-radius: 2px;
+    object-fit: cover;
+  }
+
+  &_info_block {
+    margin-left: 32px;
+  }
+
+  &_title {
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: -2px;
+    margin: 32px 0 16px 0;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &_text {
+    font-size: 16px;
+    line-height: 28px;
+    color: $grey_font;
+    margin-bottom: 32px;
+  }
+
+  &_key_words_block {
+    display: flex;
+    flex-wrap: nowrap;
+    max-height: 28px;
+  }
+
+  &_key_word {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.7px;
+    margin-right: 8px;
+    background: $orange;
+    padding: 4px 8px;
+    border-radius: 2px;
+    color: $white;
+    opacity: 0.65;
+    user-select: none;
+  }
+}

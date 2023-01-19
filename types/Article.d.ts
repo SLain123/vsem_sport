@@ -49,14 +49,6 @@ export type ArticleAttributeType = {
       attributes: BaseImageType;
     };
   };
-  gallery: {
-    data:
-      | null
-      | {
-          id: number;
-          attributes: BaseImageType;
-        }[];
-  };
 };
 
 export type ArticleType = {

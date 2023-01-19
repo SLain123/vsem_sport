@@ -1,0 +1,47 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.pag {
+  &_container {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    transition: font-size 0.2s ease-in-out;
+    margin: 36px auto;
+    padding: 0;
+    max-width: 480px;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  &_link {
+    font-size: 16px;
+    color: $grey_font;
+    padding: 4px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &_disabled {
+    opacity: 0.6;
+
+    &:hover {
+      color: $grey_font;
+      cursor: not-allowed;
+    }
+  }
+
+  &_active {
+    border-radius: 2px;
+    color: $white;
+    background-color: $orange;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

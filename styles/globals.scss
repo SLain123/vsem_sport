@@ -5,6 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "NunitoSans", sans-serif;
+  color: $black_font;
 }
 
 h1,
@@ -14,6 +15,7 @@ h4,
 h5,
 h6 {
   font-family: "Oswald", sans-serif;
+  color: $black_font;
 }
 
 :root,
@@ -42,7 +44,6 @@ main {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -53,7 +54,7 @@ a {
 @font-face {
   font-family: "Oswald";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   src: local("Oswald"), url("../public/font/Oswald.woff2") format("woff2"),
     url("../public/font/Oswald.woff") format("woff");
 }
@@ -70,7 +71,7 @@ a {
 @font-face {
   font-family: "NunitoSans";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   src: local("NunitoSans-Bold"),
     url("../public/font/NunitoSans-SemiBold.woff2") format("woff2"),
     url("../public/font/NunitoSans-SemiBold.woff") format("woff");
