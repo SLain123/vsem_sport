@@ -109,8 +109,11 @@
     font-weight: 700;
     line-height: 28px;
     white-space: nowrap;
-    color: $nav_passive;
     text-transform: uppercase;
     padding: 16px;
+
+    & a {
+      color: $nav_passive;
+    }
   }
 }

@@ -23,7 +23,7 @@ export const articlesApi = createApi({
   endpoints: (builder) => ({
     getAllArticles: builder.query<ArticlesResponse, number>({
       query: (page: number) =>
-        `/api/vs-articles?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=1`,
+        `/api/vs-articles?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=5`,
       providesTags: ["Articles"],
     }),
     getArticleBySlug: builder.query<ArticlesResponse, string>({
