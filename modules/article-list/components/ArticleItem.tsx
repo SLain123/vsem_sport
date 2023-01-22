@@ -10,7 +10,7 @@ import styles from "../ArticleList.module.scss";
 
 type ArticleItemType = Omit<
   ArticleAttributeType,
-  "createdAt" | "updatedAt" | "publishedAt" | "comments" | "sportType"
+  "createdAt" | "updatedAt" | "publishedAt" | "comments" | "categories"
 >;
 
 const ArticleItem: FC<ArticleItemType> = ({

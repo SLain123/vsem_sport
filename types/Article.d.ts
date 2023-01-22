@@ -1,3 +1,11 @@
+export type CategoriesType =
+  | "other"
+  | "fitnes"
+  | "crossfit"
+  | "run"
+  | "yoga"
+  | "bodybuilding";
+
 export type SideImageType = {
   name: string;
   hash: string;
@@ -41,7 +49,7 @@ export type ArticleAttributeType = {
   text: string;
   keyWords: string[];
   comments: string[] | null;
-  sportType: string;
+  categories: CategoriesType;
   slug: string;
   preview: {
     data: {

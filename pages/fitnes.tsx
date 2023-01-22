@@ -9,14 +9,16 @@ import { Pagination } from "components/pagination";
 import { ArticleList } from "modules/article-list";
 
 import {
-  getAllArticles,
+  getAllArticlesByCategories,
   getRunningOperationPromises,
-  useGetAllArticlesQuery,
+  useGetAllArticlesByCategoriesQuery,
 } from "redux/api/articlesApi";
+
+const category = "fitnes";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
-    store.dispatch(getAllArticles.initiate(1));
+    store.dispatch(getAllArticlesByCategories.initiate({ page: 1, category }));
 
     await Promise.all(getRunningOperationPromises());
 
@@ -26,26 +28,29 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const MainPage: NextPage = () => {
-  const { data } = useGetAllArticlesQuery(1);
+const FitnesPage: NextPage = () => {
+  const { data } = useGetAllArticlesByCategoriesQuery({
+    page: 1,
+    category,
+  });
   const articles = data?.data ? data.data : [];
 
   return (
     <>
       <Head>
-        <title>Vsem Sport Online</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>{`Vsem Sport Online - ${category}`}</title>
+        <meta name="description" content="Фитнес" />
       </Head>
       <BaseLayout>
         <MainContainer>
-          <ArticleList title="Все статьи" articles={articles} />
+          <ArticleList title="Все статьи о фитнесе" articles={articles} />
 
           {data?.meta?.pagination?.pageCount && (
             <Pagination
               page={1}
               pageCount={data?.meta.pagination.pageCount}
-              masterLink="/all"
-              firstPageLink="/"
+              masterLink={`/${category}`}
+              firstPageLink={`/${category}`}
             />
           )}
         </MainContainer>
@@ -54,4 +59,4 @@ const MainPage: NextPage = () => {
   );
 };
 
-export default MainPage;
+export default FitnesPage;

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-import { ArticlesResponse } from "types/Article";
+import { ArticlesResponse, CategoriesType } from "types/Article";
 
 export const articlesApi = createApi({
   reducerPath: "Articles",
@@ -22,13 +22,20 @@ export const articlesApi = createApi({
   tagTypes: ["Articles"],
   endpoints: (builder) => ({
     getAllArticles: builder.query<ArticlesResponse, number>({
-      query: (page: number) =>
+      query: (page) =>
         `/api/vs-articles?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=5`,
       providesTags: ["Articles"],
     }),
+    getAllArticlesByCategories: builder.query<
+      ArticlesResponse,
+      { page: number; category: CategoriesType }
+    >({
+      query: ({ page, category }) =>
+        `/api/vs-articles-by-category?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=5&category=${category}`,
+      providesTags: ["Articles"],
+    }),
     getArticleBySlug: builder.query<ArticlesResponse, string>({
-      query: (slug: string) =>
-        `/api/vs-articles?filters[slug][$eq]=${slug}&populate=*`,
+      query: (slug) => `/api/vs-articles?filters[slug][$eq]=${slug}&populate=*`,
       providesTags: ["Articles"],
     }),
   }),
@@ -37,7 +44,9 @@ export const articlesApi = createApi({
 export const {
   useGetAllArticlesQuery,
   useGetArticleBySlugQuery,
+  useGetAllArticlesByCategoriesQuery,
   util: { getRunningOperationPromises },
 } = articlesApi;
 
-export const { getAllArticles, getArticleBySlug } = articlesApi.endpoints;
+export const { getAllArticles, getArticleBySlug, getAllArticlesByCategories } =
+  articlesApi.endpoints;

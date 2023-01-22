@@ -9,13 +9,15 @@ import { Pagination } from "components/pagination";
 import { ArticleList } from "modules/article-list";
 
 import {
-  getAllArticles,
+  getAllArticlesByCategories,
   getRunningOperationPromises,
-  useGetAllArticlesQuery,
+  useGetAllArticlesByCategoriesQuery,
 } from "redux/api/articlesApi";
 
+const category = "bodybuilding";
+
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: ["/all" + "/page"],
+  paths: [`/${category}` + "/page"],
   fallback: "blocking",
 });
 
@@ -23,7 +25,11 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ params }) => {
       const page = params?.page ? Number(params.page) : 2;
-      store.dispatch(getAllArticles.initiate(page));
+
+      if (page === 1) {
+        return { redirect: { destination: `/${category}`, permanent: false } };
+      }
+      store.dispatch(getAllArticlesByCategories.initiate({ page, category }));
 
       await Promise.all(getRunningOperationPromises());
 
@@ -33,26 +39,29 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     }
 );
 
-const AllPage: NextPage<{ page: number }> = ({ page }) => {
-  const { data } = useGetAllArticlesQuery(page);
+const BodybuildingAllPage: NextPage<{ page: number }> = ({ page }) => {
+  const { data } = useGetAllArticlesByCategoriesQuery({
+    page,
+    category,
+  });
   const articles = data?.data ? data.data : [];
 
   return (
     <>
       <Head>
-        <title>Vsem Sport Online</title>
+        <title>{`Vsem Sport Online - ${category}`}</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
       </Head>
       <BaseLayout>
         <MainContainer>
-          <ArticleList title="Все статьи" articles={articles} />
+          <ArticleList title="Все статьи о бодибилдинге" articles={articles} />
 
           {data?.meta?.pagination?.pageCount && (
             <Pagination
               page={page}
               pageCount={data?.meta.pagination.pageCount}
-              masterLink="/all"
-              firstPageLink="/"
+              masterLink={`/${category}`}
+              firstPageLink={`/${category}`}
             />
           )}
         </MainContainer>
@@ -61,4 +70,4 @@ const AllPage: NextPage<{ page: number }> = ({ page }) => {
   );
 };
 
-export default AllPage;
+export default BodybuildingAllPage;
