@@ -39,25 +39,25 @@ const ArticleItem: FC<ArticleItemType> = ({
           <source
             srcSet={imgUrl.tab}
             media="(min-width: 768px)"
-            width={490}
-            height={318}
+            width={420}
+            height={300}
           />
           <img
             className={styles.item_img}
             src={imgUrl.mob}
             alt={title}
             width={290}
-            height={184}
+            height={214}
           />
         </picture>
       </Link>
 
       <div className={styles.item_info_block}>
-        <Link href={`/article/${slug}`}>
+        <Link href={`/article/${slug}`} className={styles.item_img_link}>
           <h3 className={styles.item_title}>{cropText(title, 120)}</h3>
         </Link>
         <p className={styles.item_text}>
-          {removeMarkdown(cropText(text, 380))}
+          {removeMarkdown(cropText(text, 420))}
         </p>
         <div className={styles.item_key_words_block}>
           {keyWords.map((word, indx) =>
