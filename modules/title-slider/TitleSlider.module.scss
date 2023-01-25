@@ -1,0 +1,187 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.slider {
+  &_container {
+    width: 100%;
+
+    & :global(.swiper-button-prev) {
+      color: $orange;
+      font-weight: 700;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    & :global(.swiper-button-next) {
+      color: $orange;
+      font-weight: 700;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    & :global(.swiper-pagination) {
+      position: absolute;
+      top: 72%;
+
+      @include adaptive("mob-l") {
+        top: 75%;
+      }
+    }
+
+    & :global(.swiper-pagination-bullet) {
+      background: $orange;
+      width: 16px;
+      height: 16px;
+      margin: 0 8px 0 !important;
+
+      @include adaptive("desk") {
+        width: 14px;
+        height: 14px;
+      }
+
+      @include adaptive("mob-l") {
+        width: 12px;
+        height: 12px;
+      }
+
+      @include adaptive("mini-h") {
+        display: none;
+      }
+    }
+  }
+
+  &_item {
+    width: 100%;
+    height: calc(100vh - 72px);
+    position: relative;
+  }
+
+  &_btn_bottom {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.slide {
+  &_img {
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) grayscale(50%);
+  }
+
+  &_title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    color: $white;
+    font-size: 120px;
+    font-family: "Oswald";
+
+    @include adaptive("desk") {
+      font-size: 86px;
+    }
+
+    @include adaptive("tab") {
+      font-size: 58px;
+    }
+
+    @include adaptive("mob-l") {
+      top: 10%;
+      font-size: 32px;
+    }
+
+    @include adaptive("mob") {
+      top: 10%;
+      font-size: 26px;
+    }
+
+    @include adaptive("mini-h") {
+      top: 0;
+    }
+  }
+
+  &_subtitle {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    font-size: 52px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    @include adaptive("desk") {
+      font-size: 42px;
+    }
+
+    @include adaptive("tab") {
+      font-size: 30px;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 22px;
+      white-space: normal;
+      text-align: center;
+      top: 30%;
+      width: 95%;
+    }
+
+    @include adaptive("mob") {
+      font-size: 20px;
+    }
+
+    @include adaptive("mini-h") {
+      display: none;
+    }
+  }
+
+  &_link {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    font-size: 20px;
+    padding: 4px 36px;
+    border-radius: 2px;
+    background-color: $orange;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    line-height: 48px;
+
+    @include adaptive("desk") {
+      font-size: 18px;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 16px;
+      padding: 4px 28px;
+    }
+
+    @include adaptive("mini-h") {
+      padding: 0 24px;
+      top: 45%;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

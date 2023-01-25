@@ -1,5 +1,10 @@
 import "styles/globals.scss";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+
 import React, { FC } from "react";
 import { Provider } from "react-redux";
 import { AppProps } from "next/app";

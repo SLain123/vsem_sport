@@ -7,6 +7,7 @@ import { wrapper } from "redux/store";
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { Pagination } from "components/pagination";
 import { ArticleList } from "modules/article-list";
+import { TitleSlider } from "modules/title-slider";
 
 import {
   getAllArticles,
@@ -36,7 +37,9 @@ const MainPage: NextPage = () => {
         <title>Vsem Sport Online</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
       </Head>
+
       <BaseLayout>
+        <TitleSlider />
         <MainContainer>
           <ArticleList title="Все статьи" articles={articles} />
 

@@ -62,7 +62,9 @@ const ArticleItem: FC<ArticleItemType> = ({
         <div className={styles.item_key_words_block}>
           {keyWords.map((word, indx) =>
             indx <= 5 ? (
-              <span className={styles.item_key_word}>{word}</span>
+              <span key={word} className={styles.item_key_word}>
+                {word}
+              </span>
             ) : null
           )}
         </div>
