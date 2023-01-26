@@ -4,7 +4,7 @@ import { ArticleType } from "types/Article";
 
 import { ArticleItem } from "./components/ArticleItem";
 
-import styles from "./ArticleList.module.scss";
+import styles from "./Article.module.scss";
 
 type ArticleBlockType = {
   title: string;

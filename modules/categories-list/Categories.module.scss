@@ -1,0 +1,111 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.cat {
+  &_container {
+    margin-top: 32px;
+
+    @include adaptive("tab-l") {
+      margin-top: 0;
+    }
+  }
+
+  &_title {
+    margin-bottom: 64px;
+    font-size: 42px;
+
+    @include adaptive("desk") {
+      margin-bottom: 32px;
+      font-size: 26px;
+    }
+
+    @include adaptive("tab") {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+  }
+
+  &_list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+    @include adaptive("tab-l") {
+      flex-flow: column;
+    }
+  }
+
+  &_item {
+    width: calc(50% - 4px);
+    position: relative;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    padding: 24px;
+
+    &:hover .cat_img {
+      filter: brightness(0.2) grayscale(80%);
+    }
+
+    &:hover .cat_desc {
+      opacity: 1;
+    }
+
+    @include adaptive("tab-l") {
+      width: 100%;
+      margin-right: 0;
+      padding: 16px;
+    }
+  }
+
+  &_img {
+    object-fit: cover;
+    filter: brightness(0.9) grayscale(20%);
+    border-radius: 2px;
+    transition: 0.3s ease;
+
+    @include adaptive("tab-l") {
+      filter: brightness(0.2) grayscale(40%);
+    }
+  }
+
+  &_inner_title {
+    color: $white;
+    position: relative;
+    font-size: 34px;
+    font-family: "Oswald";
+    margin: 0 0 28px 0;
+
+    @include adaptive("desk") {
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &_desc {
+    position: relative;
+    color: $white;
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0 0 8px 0;
+    opacity: 0;
+    transition: 0.6s ease;
+
+    @include adaptive("tab-l") {
+      opacity: 0.9;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}

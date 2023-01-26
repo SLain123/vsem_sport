@@ -6,7 +6,7 @@ import { ArticleAttributeType } from "types/Article";
 
 import { cropText } from "utils/textCropper";
 
-import styles from "../ArticleList.module.scss";
+import styles from "../Article.module.scss";
 
 type ArticleItemType = Omit<
   ArticleAttributeType,

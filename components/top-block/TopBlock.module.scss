@@ -38,10 +38,11 @@
     margin-top: 0;
     margin-bottom: 16px;
     font-size: 17px;
+    color: $orange;
   }
 
   &_link {
-    color: $nav_active;
+    color: black;
     font-weight: 700;
     font-size: 16px;
     opacity: 0.8;
@@ -49,6 +50,7 @@
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: "Oswald";
 
     &:hover {
       opacity: 1;
@@ -57,7 +59,7 @@
 
   &_category {
     color: $grey;
-    font-size: 14px;
+    font-size: 15px;
     white-space: nowrap;
     max-width: 100%;
     overflow: hidden;

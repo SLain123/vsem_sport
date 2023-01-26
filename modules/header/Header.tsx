@@ -19,7 +19,7 @@ const Header: FC = () => {
     () => [
       { id: 0, title: "Главная", link: "/" },
       { id: 1, title: "Посмотреть программы", link: "/trainings" },
-      { id: 2, title: "Выбрать спорт", link: "/sports" },
+      { id: 2, title: "Выбрать спорт", link: "/categories" },
       { id: 3, title: "Контакты", link: "/contacts" },
     ],
     []

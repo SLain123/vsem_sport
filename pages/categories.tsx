@@ -2,19 +2,23 @@ import React from "react";
 import Head from "next/head";
 import { NextPage } from "next";
 
-import { BaseLayout } from "components/wrappers";
-import { DevStub } from "components/dev-stub";
+import { BaseLayout, MainContainer } from "components/wrappers";
+import { Banner } from "components/banner";
+import { CategoriesList } from "modules/categories-list";
 
 const SportsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Виды спорта</title>
+        <title>Категории спорта</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
         <meta name="robots" content="all" />
       </Head>
       <BaseLayout>
-        <DevStub message="Портал 'Всем спорт' находится в разработке" />
+        <MainContainer className="main_grid_container">
+          <CategoriesList />
+          <Banner />
+        </MainContainer>
       </BaseLayout>
     </>
   );
