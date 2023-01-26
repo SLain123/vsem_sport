@@ -6,30 +6,39 @@ import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { Pagination } from "components/pagination";
+import { TopBlock } from "components/top-block";
 import { ArticleList } from "modules/article-list";
 import { TitleSlider } from "modules/title-slider";
 
 import {
   getAllArticles,
-  getRunningOperationPromises,
   useGetAllArticlesQuery,
+  articlesApi,
 } from "redux/api/articlesApi";
+import { getTopByName, useGetTopByNameQuery, topApi } from "redux/api/topApi";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async () => {
-    store.dispatch(getAllArticles.initiate(1));
+  ({ dispatch }) =>
+    async () => {
+      dispatch(getAllArticles.initiate(1));
+      dispatch(getTopByName.initiate("all-sports"));
 
-    await Promise.all(getRunningOperationPromises());
+      await Promise.all([
+        ...dispatch(articlesApi.util.getRunningQueriesThunk()),
+        ...dispatch(topApi.util.getRunningQueriesThunk()),
+      ]);
 
-    return {
-      props: {},
-    };
-  }
+      return {
+        props: {},
+      };
+    }
 );
 
 const MainPage: NextPage = () => {
-  const { data } = useGetAllArticlesQuery(1);
-  const articles = data?.data ? data.data : [];
+  const { data: articleData } = useGetAllArticlesQuery(1);
+  const { data: topData } = useGetTopByNameQuery("all-sports");
+  const articles = articleData?.data ? articleData.data : [];
+  const topList = topData?.data?.length ? topData.data[0].attributes.list : [];
 
   return (
     <>
@@ -40,17 +49,22 @@ const MainPage: NextPage = () => {
 
       <BaseLayout>
         <TitleSlider />
-        <MainContainer>
-          <ArticleList title="Все статьи" articles={articles} />
-
-          {data?.meta?.pagination?.pageCount && (
-            <Pagination
-              page={1}
-              pageCount={data?.meta.pagination.pageCount}
-              masterLink="/all"
-              firstPageLink="/"
-            />
-          )}
+        <MainContainer className="main_grid_container">
+          <div>
+            <ArticleList title="Все статьи" articles={articles} />
+            {articleData?.meta?.pagination?.pageCount && (
+              <Pagination
+                page={1}
+                pageCount={articleData?.meta.pagination.pageCount}
+                masterLink="/all"
+                firstPageLink="/"
+              />
+            )}
+          </div>
+          <TopBlock
+            topList={topList}
+            title="Топ 10 статей по всем видам спорта:"
+          />
         </MainContainer>
       </BaseLayout>
     </>

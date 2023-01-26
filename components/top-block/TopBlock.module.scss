@@ -1,0 +1,67 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.top {
+  &_container {
+    position: relative;
+    margin: 16px 0;
+    border: 1px $grey_border solid;
+    border-radius: 2px;
+    position: sticky;
+    top: 72px;
+    left: 0;
+    padding: 16px;
+    max-width: 300px;
+
+    @include adaptive("mob-l") {
+      margin: 0 auto 32px auto;
+    }
+
+    @include adaptive("mob-m") {
+      max-width: 290px;
+    }
+  }
+
+  &_list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &_item {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 8px;
+  }
+
+  &_title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 17px;
+  }
+
+  &_link {
+    color: $nav_active;
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0.8;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &_category {
+    color: $grey;
+    font-size: 14px;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: lowercase;
+  }
+}

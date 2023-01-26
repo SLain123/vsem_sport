@@ -20,7 +20,7 @@
     line-height: 64px;
     letter-spacing: -2px;
     padding-bottom: 32px;
-    border-bottom: 1px solid #e2e2e4;
+    border-bottom: 1px solid $grey_border;
 
     @include adaptive("tab-l") {
       font-size: 38px;

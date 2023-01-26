@@ -11,8 +11,8 @@ import { ArticleList } from "modules/article-list";
 
 import {
   getAllArticlesByCategories,
-  getRunningOperationPromises,
   useGetAllArticlesByCategoriesQuery,
+  articlesApi,
 } from "redux/api/articlesApi";
 
 const category = "bodybuilding";
@@ -23,16 +23,18 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 });
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) =>
+  ({ dispatch }) =>
     async ({ params }) => {
       const page = params?.page ? Number(params.page) : 2;
 
       if (page === 1) {
         return { redirect: { destination: `/${category}`, permanent: false } };
       }
-      store.dispatch(getAllArticlesByCategories.initiate({ page, category }));
 
-      await Promise.all(getRunningOperationPromises());
+      dispatch(getAllArticlesByCategories.initiate({ page, category }));
+      await Promise.all([
+        ...dispatch(articlesApi.util.getRunningQueriesThunk()),
+      ]);
 
       return {
         props: { page },

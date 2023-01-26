@@ -11,8 +11,8 @@ import { ArticleList } from "modules/article-list";
 
 import {
   getAllArticles,
-  getRunningOperationPromises,
   useGetAllArticlesQuery,
+  articlesApi,
 } from "redux/api/articlesApi";
 
 export const getStaticPaths: GetStaticPaths = async () => ({
@@ -21,12 +21,14 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 });
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) =>
+  ({ dispatch }) =>
     async ({ params }) => {
       const page = params?.page ? Number(params.page) : 2;
-      store.dispatch(getAllArticles.initiate(page));
+      dispatch(getAllArticles.initiate(page));
 
-      await Promise.all(getRunningOperationPromises());
+      await Promise.all([
+        ...dispatch(articlesApi.util.getRunningQueriesThunk()),
+      ]);
 
       return {
         props: { page },

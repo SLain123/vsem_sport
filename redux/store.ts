@@ -2,14 +2,16 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 
 import { articlesApi } from "./api/articlesApi";
+import { topApi } from "./api/topApi";
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [articlesApi.reducerPath]: articlesApi.reducer,
+      [topApi.reducerPath]: topApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(articlesApi.middleware),
+      getDefaultMiddleware().concat(articlesApi.middleware, topApi.middleware),
     devTools: process.env.NODE_ENV === "development",
   });
 // eslint-disable-next-line no-undef

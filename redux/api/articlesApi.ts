@@ -45,8 +45,6 @@ export const {
   useGetAllArticlesQuery,
   useGetArticleBySlugQuery,
   useGetAllArticlesByCategoriesQuery,
-  util: { getRunningOperationPromises },
 } = articlesApi;
-
 export const { getAllArticles, getArticleBySlug, getAllArticlesByCategories } =
   articlesApi.endpoints;
