@@ -45,6 +45,7 @@ const MainPage: NextPage = () => {
       <Head>
         <title>Vsem Sport Online</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <meta name="robots" content="all" />
       </Head>
 
       <BaseLayout>

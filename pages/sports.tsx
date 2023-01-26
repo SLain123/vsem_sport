@@ -11,6 +11,7 @@ const SportsPage: NextPage = () => {
       <Head>
         <title>Виды спорта</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <meta name="robots" content="all" />
       </Head>
       <BaseLayout>
         <DevStub message="Портал 'Всем спорт' находится в разработке" />

@@ -54,6 +54,10 @@ const FitnesAllPage: NextPage<{ page: number }> = ({ page }) => {
       <Head>
         <title>{`Vsem Sport Online - ${category}`}</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <meta
+          name="robots"
+          content={articles.length ? "all" : "noindex, nofollow"}
+        />
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">

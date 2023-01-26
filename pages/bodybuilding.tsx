@@ -49,6 +49,7 @@ const BodybuildingPage: NextPage = () => {
       <Head>
         <title>{`Vsem Sport Online - ${category}`}</title>
         <meta name="description" content="Фитнес" />
+        <meta name="robots" content="all" />
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">
