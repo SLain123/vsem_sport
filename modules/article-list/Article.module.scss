@@ -21,6 +21,7 @@
     letter-spacing: -2px;
     padding-bottom: 32px;
     border-bottom: 1px solid $grey_border;
+    user-select: none;
 
     @include adaptive("tab-l") {
       font-size: 38px;
@@ -132,6 +133,7 @@
     color: $grey_font;
     margin-bottom: 32px;
     width: 100%;
+    user-select: none;
 
     @include adaptive("tab-l") {
       font-size: 15px;

@@ -3,16 +3,22 @@
 
 .cat {
   &_container {
-    margin-top: 32px;
+    margin: 32px 0;
 
-    @include adaptive("tab-l") {
+    @include adaptive("desk") {
       margin-top: 0;
+    }
+
+    @include adaptive("mob-l") {
+      margin-bottom: 0;
     }
   }
 
   &_title {
     margin-bottom: 64px;
     font-size: 42px;
+    user-select: none;
+    
 
     @include adaptive("desk") {
       margin-bottom: 32px;
@@ -28,6 +34,7 @@
   &_list {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-flow: wrap;
     justify-content: space-between;
@@ -77,6 +84,7 @@
     font-size: 34px;
     font-family: "Oswald";
     margin: 0 0 28px 0;
+    user-select: none;
 
     @include adaptive("desk") {
       font-size: 30px;
@@ -98,6 +106,7 @@
     margin: 0 0 8px 0;
     opacity: 0;
     transition: 0.6s ease;
+    user-select: none;
 
     @include adaptive("tab-l") {
       opacity: 0.9;

@@ -22,8 +22,10 @@ const Category: FC<PropsType> = ({ title, href, imgSrc, desc }) => {
           className={styles.cat_img}
         />
         <h3 className={styles.cat_inner_title}>{title}</h3>
-        {desc.map((par) => (
-          <p className={styles.cat_desc}>{par}</p>
+        {desc.map((par, indx) => (
+          <p key={indx} className={styles.cat_desc}>
+            {par}
+          </p>
         ))}
       </Link>
     </li>
