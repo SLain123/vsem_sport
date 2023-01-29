@@ -22,7 +22,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     async () => {
       dispatch(getAllArticles.initiate(1));
       dispatch(getTopByName.initiate("all-sports"));
-
       await Promise.all([
         ...dispatch(articlesApi.util.getRunningQueriesThunk()),
         ...dispatch(topApi.util.getRunningQueriesThunk()),

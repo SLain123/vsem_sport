@@ -1,0 +1,261 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.art {
+  &_container {
+    max-width: 880px;
+    margin: 0 auto 64px auto;
+
+    @include adaptive("tab-l") {
+      margin-top: 32px;
+      max-width: 660px;
+    }
+
+    @include adaptive("tab") {
+      max-width: 404px;
+    }
+
+    @include adaptive("mob-l") {
+      margin: 0;
+      max-width: 96vw;
+    }
+  }
+
+  &_title {
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: -2px;
+    max-height: 128px;
+    overflow: hidden;
+    user-select: none;
+
+    @include adaptive("tab-l") {
+      font-size: 38px;
+      line-height: 48px;
+      max-height: 96px;
+    }
+
+    @include adaptive("tab") {
+      font-size: 34px;
+      line-height: 44px;
+      max-height: 88px;
+    }
+  }
+
+  &_img {
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto 32px auto;
+  }
+
+  &_word {
+    &_container {
+      margin-bottom: 16px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-flow: nowrap;
+      max-height: 20px;
+
+      @include adaptive("tab-l") {
+        overflow-x: scroll;
+      }
+
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+    }
+
+    &_item {
+      font-size: 14px;
+      padding: 0 8px;
+      letter-spacing: -0.5px;
+      user-select: none;
+      text-transform: lowercase;
+      background: $orange;
+      color: $white;
+      margin-right: 6px;
+      opacity: 0.8;
+      border-radius: 2px;
+    }
+  }
+
+  &_text_block {
+    user-select: none;
+
+    & h2 {
+      font-size: 36px;
+      line-height: 48px;
+      letter-spacing: -2px;
+
+      @include adaptive("tab-l") {
+        font-size: 32px;
+        line-height: 44px;
+      }
+
+      @include adaptive("tab") {
+        font-size: 28px;
+        line-height: 40px;
+        letter-spacing: -1.5px;
+      }
+    }
+
+    & h3 {
+      font-size: 28px;
+      line-height: 40px;
+      letter-spacing: -1.5px;
+
+      @include adaptive("tab-l") {
+        font-size: 26px;
+        line-height: 38px;
+        letter-spacing: -1px;
+      }
+
+      @include adaptive("tab") {
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: -0.8px;
+      }
+    }
+
+    & h4 {
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: -0.8px;
+
+      @include adaptive("tab-l") {
+        font-size: 22px;
+        line-height: 34px;
+        letter-spacing: -0.4px;
+      }
+
+      @include adaptive("tab") {
+        font-size: 20px;
+        line-height: 32px;
+        letter-spacing: -0.2px;
+      }
+    }
+
+    & h5 {
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -0.2px;
+
+      @include adaptive("tab-l") {
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0;
+      }
+
+      @include adaptive("tab") {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+
+    & h6 {
+      font-size: 16px;
+      line-height: 26px;
+
+      @include adaptive("tab") {
+        font-size: 15px;
+        line-height: 24px;
+      }
+    }
+
+    & p {
+      font-size: 16px;
+      line-height: 28px;
+
+      @include adaptive("tab") {
+        font-size: 15px;
+        line-height: 24px;
+      }
+    }
+
+    & strong {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.4px;
+
+      @include adaptive("tab") {
+        font-size: 16px;
+      }
+    }
+
+    & code {
+      background: $grey;
+      padding: 4px 16px;
+      margin-left: 8px;
+      border-radius: 2px;
+    }
+
+    & img {
+      width: 100%;
+      max-width: 660px;
+      margin: 36px auto;
+      display: block;
+      border-radius: 2px;
+    }
+
+    & a {
+      color: $orange;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    & ul {
+      line-height: 1.5em;
+      margin: 5px 0 15px;
+      padding: 0;
+    }
+
+    & ol {
+      padding: 0 16px;
+    }
+
+    & ol > li {
+      position: relative;
+      padding: 0 0 0 16px;
+      margin-bottom: 4px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    & ul > li {
+      list-style: none;
+      position: relative;
+      padding: 0 0 0 24px;
+      margin-bottom: 4px;
+      font-size: 17px;
+      line-height: 28px;
+    }
+
+    & ul > li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 5px;
+      width: 4px;
+      height: 10px;
+      border: solid $orange;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    & blockquote {
+      border-left: 3px solid $orange;
+      color: $grey_font;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 32px;
+      margin: 16px -24px;
+      padding: 16px 32px;
+      position: relative;
+    }
+  }
+}

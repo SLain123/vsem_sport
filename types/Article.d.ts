@@ -49,7 +49,7 @@ export type ArticleAttributeType = {
   text: string;
   keyWords: string[];
   comments: string[] | null;
-  categories: CategoriesType;
+  categories: CategoriesType[];
   slug: string;
   preview: {
     data: {

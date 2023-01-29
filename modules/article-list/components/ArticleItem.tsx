@@ -22,8 +22,6 @@ const ArticleItem: FC<ArticleItemType> = ({
 }) => {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
   const imgUrl = {
-    // TODO: remove desk variable after realise article page;
-    desk: `${baseUrl}${preview.data.attributes.url}`,
     tab: preview?.data?.attributes?.formats?.medium?.url
       ? `${baseUrl}${preview.data.attributes.formats.medium.url}`
       : `${baseUrl}${preview.data.attributes.url}`,
