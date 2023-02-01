@@ -8,18 +8,20 @@
     & :global(.swiper-button-prev) {
       color: $orange;
       font-weight: 700;
+      opacity: 0.8;
 
       &:hover {
-        opacity: 0.8;
+        opacity: 1;
       }
     }
 
     & :global(.swiper-button-next) {
       color: $orange;
       font-weight: 700;
+      opacity: 0.8;
 
       &:hover {
-        opacity: 0.8;
+        opacity: 1;
       }
     }
 

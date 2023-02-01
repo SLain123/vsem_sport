@@ -1,0 +1,54 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.relative {
+  &_container {
+    margin-bottom: 32px;
+
+    & :global(.swiper-button-prev) {
+      color: $orange;
+      font-weight: 700;
+      top: 40%;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    & :global(.swiper-button-next) {
+      color: $orange;
+      font-weight: 700;
+      top: 40%;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_img {
+    width: 100%;
+    max-height: 6%;
+    border-radius: 2px;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+
+    &:hover {
+      filter: contrast(120%);
+    }
+  }
+
+  &_title {
+    max-height: 56px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 18px;
+    opacity: 0.9;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

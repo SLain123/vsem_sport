@@ -6,10 +6,6 @@
     width: 100%;
     margin-top: 64px;
 
-    @include adaptive("tab-l") {
-      margin-top: 32px;
-    }
-
     @include adaptive("mob-l") {
       margin-top: 24px;
     }
@@ -74,6 +70,7 @@
   &_img {
     border-radius: 2px;
     object-fit: cover;
+    aspect-ratio: 3/2;
 
     @include adaptive("tab-l") {
       width: 660px;

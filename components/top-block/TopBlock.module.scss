@@ -4,12 +4,12 @@
 .top {
   &_container {
     position: relative;
-    margin: 16px 0;
+    margin: 64px 0 16px;
     border-radius: 2px;
     position: sticky;
     top: 72px;
     left: 0;
-    padding: 16px;
+    padding: 0 16px;
     max-width: 300px;
 
     @include adaptive("mob-l") {

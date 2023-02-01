@@ -3,8 +3,11 @@
 
 .art {
   &_container {
-    max-width: 880px;
-    margin: 0 auto 64px auto;
+    margin: 64px auto 32px auto;
+
+    @include adaptive("desk") {
+      max-width: 880px;
+    }
 
     @include adaptive("tab-l") {
       margin-top: 32px;
@@ -16,7 +19,7 @@
     }
 
     @include adaptive("mob-l") {
-      margin: 0;
+      margin: 24px 0 0 0;
       max-width: 96vw;
     }
   }
@@ -28,6 +31,7 @@
     max-height: 128px;
     overflow: hidden;
     user-select: none;
+    margin-top: 0;
 
     @include adaptive("tab-l") {
       font-size: 38px;
@@ -47,12 +51,13 @@
     border-radius: 2px;
     display: block;
     margin: 0 auto 32px auto;
+    aspect-ratio: 3/2;
   }
 
   &_word {
     &_container {
       margin-bottom: 16px;
-      max-width: 100%;
+      max-width: 1024px;
       overflow: hidden;
       display: flex;
       flex-flow: nowrap;
@@ -197,6 +202,7 @@
       margin: 36px auto;
       display: block;
       border-radius: 2px;
+      aspect-ratio: 3/2;
     }
 
     & a {

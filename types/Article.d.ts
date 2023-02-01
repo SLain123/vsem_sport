@@ -57,6 +57,7 @@ export type ArticleAttributeType = {
       attributes: BaseImageType;
     };
   };
+  relativeArticles: string[];
 };
 
 export type ArticleType = {
@@ -76,4 +77,15 @@ export type ArticlesResponse = {
   meta: {
     pagination: PaginationType;
   };
+};
+
+export type ArticleMini = {
+  id: number;
+  title: string;
+  slug: string;
+  preview: string;
+};
+
+export type ArticleMiniResponse = {
+  articleList: ArticleMini[];
 };

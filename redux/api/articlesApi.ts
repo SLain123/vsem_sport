@@ -1,7 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-import { ArticlesResponse, CategoriesType } from "types/Article";
+import {
+  ArticlesResponse,
+  CategoriesType,
+  ArticleMiniResponse,
+} from "types/Article";
 
 export const articlesApi = createApi({
   reducerPath: "Articles",
@@ -38,6 +42,17 @@ export const articlesApi = createApi({
       query: (slug) => `/api/vs-articles?filters[slug][$eq]=${slug}&populate=*`,
       providesTags: ["Articles"],
     }),
+    getMiniArticlesBySlugList: builder.query<ArticleMiniResponse, string[]>({
+      query: (slugList) => {
+        const query = new URLSearchParams();
+        for (const slug of slugList) {
+          query.append("slugList", slug);
+        }
+
+        return `/api/vs-articles-get-mini?${String(query)}`;
+      },
+      providesTags: ["Articles"],
+    }),
   }),
 });
 
@@ -45,6 +60,11 @@ export const {
   useGetAllArticlesQuery,
   useGetArticleBySlugQuery,
   useGetAllArticlesByCategoriesQuery,
+  useGetMiniArticlesBySlugListQuery,
 } = articlesApi;
-export const { getAllArticles, getArticleBySlug, getAllArticlesByCategories } =
-  articlesApi.endpoints;
+export const {
+  getAllArticles,
+  getArticleBySlug,
+  getAllArticlesByCategories,
+  getMiniArticlesBySlugList,
+} = articlesApi.endpoints;

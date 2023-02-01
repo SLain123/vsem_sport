@@ -5,12 +5,21 @@ import { ArticleAttributeType } from "types/Article";
 
 import styles from "./Article.module.scss";
 
-const Article: FC<ArticleAttributeType> = ({
-  title,
-  keyWords,
-  preview,
-  text,
-}) => {
+type Props = Omit<
+  ArticleAttributeType,
+  | "createdAt"
+  | "updatedAt"
+  | "publishedAt"
+  | "categories"
+  | "slug"
+  | "relativeArticles"
+>;
+
+const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
+  if (!preview) {
+    return null;
+  }
+
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
   const imgUrl = {
     desk: `${baseUrl}${preview.data.attributes.url}`,
@@ -29,18 +38,15 @@ const Article: FC<ArticleAttributeType> = ({
       {keyWords.length && (
         <div className={styles.art_word_container}>
           {keyWords.map((word) => (
-            <span className={styles.art_word_item}>{word}</span>
+            <span key={word} className={styles.art_word_item}>
+              {word}
+            </span>
           ))}
         </div>
       )}
 
       <picture>
-        <source
-          srcSet={imgUrl.desk}
-          media="(min-width: 1024px)"
-          width={660}
-          height={440}
-        />
+        <source srcSet={imgUrl.desk} media="(min-width: 1024px)" width={660} />
         <source
           srcSet={imgUrl.tab}
           media="(min-width: 768px)"
@@ -52,7 +58,6 @@ const Article: FC<ArticleAttributeType> = ({
           src={imgUrl.mob}
           alt={title}
           width="100%"
-          height={240}
         />
       </picture>
 
