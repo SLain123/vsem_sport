@@ -23,6 +23,7 @@ const RelativeArticles: FC<Props> = ({ relativeList }) => {
         loop
         autoplay={{ delay: 3500 }}
         navigation
+        loopedSlides={3}
         breakpoints={{
           768: {
             slidesPerView: 2,
