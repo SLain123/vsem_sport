@@ -54,7 +54,7 @@ const ArticlePage: NextPage<{ slug: string }> = ({ slug }) => {
   const router = useRouter();
 
   const { data: articleData, isLoading } = useGetArticleBySlugQuery(slug);
-  const article: ArticleAttributeType = articleData?.data?.length
+  const article: ArticleAttributeType | null = articleData?.data?.length
     ? articleData.data[0].attributes
     : null;
 

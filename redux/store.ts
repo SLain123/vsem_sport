@@ -3,15 +3,24 @@ import { createWrapper } from "next-redux-wrapper";
 
 import { articlesApi } from "./api/articlesApi";
 import { topApi } from "./api/topApi";
+import { exercisesApi } from "./api/exercisesApi";
+import { filtersApi } from "./api/filtersApi";
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [articlesApi.reducerPath]: articlesApi.reducer,
       [topApi.reducerPath]: topApi.reducer,
+      [exercisesApi.reducerPath]: exercisesApi.reducer,
+      [filtersApi.reducerPath]: filtersApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(articlesApi.middleware, topApi.middleware),
+      getDefaultMiddleware().concat(
+        articlesApi.middleware,
+        topApi.middleware,
+        exercisesApi.middleware,
+        filtersApi.middleware
+      ),
     devTools: process.env.NODE_ENV === "development",
   });
 // eslint-disable-next-line no-undef

@@ -3,7 +3,7 @@ import { HYDRATE } from "next-redux-wrapper";
 
 import {
   ArticlesResponse,
-  CategoriesType,
+  Categories,
   ArticleMiniResponse,
 } from "types/Article";
 
@@ -32,7 +32,7 @@ export const articlesApi = createApi({
     }),
     getAllArticlesByCategories: builder.query<
       ArticlesResponse,
-      { page: number; category: CategoriesType }
+      { page: number; category: Categories }
     >({
       query: ({ page, category }) =>
         `/api/vs-articles-by-category?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=5&category=${category}`,
