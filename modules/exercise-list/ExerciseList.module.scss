@@ -1,0 +1,146 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.ex {
+  &_container {
+    width: 100%;
+    margin-top: 64px;
+
+    @include adaptive("tab-l") {
+      margin-top: 32px;
+    }
+
+    @include adaptive("mob-l") {
+      margin-top: 24px;
+    }
+  }
+
+  &_title {
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: -2px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid $grey_border;
+    user-select: none;
+
+    @include adaptive("tab-l") {
+      font-size: 38px;
+      line-height: 48px;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 32px;
+      line-height: 42px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &_list {
+    padding: 0;
+    list-style: none;
+    margin-top: 64px;
+
+    @include adaptive("tab-l") {
+      margin-top: 32px;
+    }
+
+    @include adaptive("mob-l") {
+      margin-top: 24px;
+    }
+  }
+}
+
+.item {
+  &_container {
+    display: flex;
+    margin-bottom: 16px;
+
+    @include adaptive("tab") {
+      flex-flow: column;
+    }
+  }
+
+  &_img_container {
+    display: block;
+    position: relative;
+  }
+
+  &_img {
+    border-radius: 2px;
+    object-fit: cover;
+    aspect-ratio: 3/2;
+
+    @include adaptive("tab") {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &_score {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey_bg;
+    border-radius: 100%;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    color: $orange;
+    border: 4px $orange solid;
+    font-family: "Oswald";
+    font-size: 18px;
+    opacity: 0.9;
+    padding-left: 2px;
+  }
+
+  &_info_block {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 24px;
+    flex-direction: column;
+
+    @include adaptive("tab") {
+      padding: 16px 0;
+    }
+  }
+
+  &_title {
+    font-size: 26px;
+    margin: 0;
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include adaptive("tab") {
+      margin-bottom: 16px;
+    }
+  }
+
+  &_desc {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 360px;
+    font-size: 13px;
+    color: $grey_font;
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    span {
+      color: $black_font;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      font-weight: 700;
+    }
+  }
+}

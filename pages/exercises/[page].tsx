@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { NextPage } from "next";
-import { GetStaticProps } from "next/types";
+import { GetStaticPaths, GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
@@ -20,10 +20,21 @@ import {
   filtersApi,
 } from "redux/api/filtersApi";
 
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [`/exercises` + "/page"],
+  fallback: "blocking",
+});
+
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   ({ dispatch }) =>
-    async () => {
-      dispatch(getAllExercises.initiate(1));
+    async ({ params }) => {
+      const page = params?.page ? Number(params.page) : 2;
+
+      if (page === 1) {
+        return { redirect: { destination: `/exercises`, permanent: false } };
+      }
+
+      dispatch(getAllExercises.initiate(page));
       dispatch(getFilters.initiate());
       await Promise.all([
         ...dispatch(exercisesApi.util.getRunningQueriesThunk()),
@@ -31,13 +42,13 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       ]);
 
       return {
-        props: {},
+        props: { page },
       };
     }
 );
 
-const ExercisesPage: NextPage = () => {
-  const { data: exerciseData } = useGetAllExercisesQuery(1);
+const ExercisesAllPage: NextPage<{ page: number }> = ({ page }) => {
+  const { data: exerciseData } = useGetAllExercisesQuery(page);
   const { data: filterData } = useGetFiltersQuery();
   const exercises = exerciseData?.data ? exerciseData.data : [];
   const filters = filterData?.data ? filterData.data : null;
@@ -59,7 +70,7 @@ const ExercisesPage: NextPage = () => {
             <ExerciseList title="Все упражнения" exercises={exercises} />
             {exerciseData?.meta?.pagination?.pageCount && (
               <Pagination
-                page={1}
+                page={page}
                 pageCount={exerciseData?.meta.pagination.pageCount}
                 masterLink="/exercises"
                 firstPageLink="/exercises"
@@ -73,4 +84,4 @@ const ExercisesPage: NextPage = () => {
   );
 };
 
-export default ExercisesPage;
+export default ExercisesAllPage;

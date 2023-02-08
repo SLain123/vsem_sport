@@ -23,7 +23,7 @@ export const exercisesApi = createApi({
   endpoints: (builder) => ({
     getAllExercises: builder.query<ExercisesResponse, number>({
       query: (page) =>
-        `/api/vs-exercises?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=5`,
+        `/api/vs-exercises?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=10`,
       providesTags: ["Exercises"],
     }),
     //TODO: finished after API will be created
