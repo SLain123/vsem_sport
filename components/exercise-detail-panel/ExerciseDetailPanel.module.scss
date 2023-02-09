@@ -1,0 +1,65 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.edp {
+  &_container {
+    margin-top: 64px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    @include adaptive("mob-l") {
+      display: none;
+    }
+  }
+
+  &_score {
+    width: 64px;
+    height: 64px;
+    border: 2px solid $orange;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $header-font;
+    font-size: 24px;
+  }
+
+  &_header {
+    font-weight: 700;
+    font-size: 24px;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  &_desc {
+    margin: 4px 0;
+    font-size: 14px;
+
+    & span {
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+
+  &_extra {
+    &_container {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+
+    &_header {
+      font-weight: 700;
+      font-size: 20px;
+      white-space: nowrap;
+      margin: 0 0 8px 0;
+    }
+
+    &_item {
+      text-transform: lowercase;
+      margin: 2px 0;
+      color: $grey_font;
+    }
+  }
+}

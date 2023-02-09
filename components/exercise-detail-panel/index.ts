@@ -1,0 +1,1 @@
+export { ExerciseDetailPanel } from "./ExerciseDetailPanel";

@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { Exercise } from "components/exercise";
 import { Banner } from "components/banner";
+import { ExerciseDetailPanel } from "components/exercise-detail-panel";
 
 import { ExerciseAttributeType } from "types/Exercise";
 
@@ -70,10 +71,6 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
     : null;
 
   useEffect(() => {
-    console.log(bodyPartUrl);
-  }, [bodyPartUrl]);
-
-  useEffect(() => {
     !isLoading && !exercise && router.push("/exercises");
   }, [exercise, isLoading]);
 
@@ -90,15 +87,31 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
 
       <BaseLayout>
         <MainContainer className="main_grid_container">
-          {exercise && (
+          {exercise ? (
             <Exercise
               title={exercise.title}
               description={exercise.description}
               preview={exercise.preview}
               youtube={exercise.youtube}
             />
+          ) : (
+            <div>error component</div>
           )}
-          <Banner />
+
+          <div>
+            {exercise && (
+              <ExerciseDetailPanel
+                equipment={exercise.equipment}
+                exType={exercise.exType}
+                extraBodyParts={exercise.extraBodyParts}
+                level={exercise.level}
+                partOfBody={exercise.partOfBody}
+                score={exercise.score}
+                bodyPartUrl={bodyPartUrl}
+              />
+            )}
+            <Banner />
+          </div>
         </MainContainer>
 
         <MainContainer>

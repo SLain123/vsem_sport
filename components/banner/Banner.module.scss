@@ -1,20 +1,21 @@
 @import "styles/mixin.scss";
 
 .banner {
-  &_container {
-    width: 100%;
-    margin: 64px 0 32px 0;
-
-    @include adaptive("tab-l") {
-      margin-top: 32px;
-    }
-  }
-
   &_body {
     background: grey;
     position: sticky;
     top: 76px;
     left: 0;
     height: 600px;
+    width: 100%;
+    margin: 64px 0 32px 0;
+
+    @include adaptive("tab-l") {
+      margin-top: 32px;
+    }
+
+    @include adaptive("mob-l") {
+      display: none;
+    }
   }
 }
