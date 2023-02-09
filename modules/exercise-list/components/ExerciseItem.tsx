@@ -46,7 +46,7 @@ const ExerciseItem: FC<ExerciseItemType> = ({
         <div className={styles.item_score}>{score}</div>
       </Link>
       <div className={styles.item_info_block}>
-        <Link href={`/article/${slug}`} className={styles.item_img_link}>
+        <Link href={`/exercise/${slug}`} className={styles.item_img_link}>
           <h3 className={styles.item_title}>{cropText(title, 120)}</h3>
         </Link>
         <div style={{ position: "relative" }}>

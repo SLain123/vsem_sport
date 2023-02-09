@@ -84,7 +84,7 @@
       letter-spacing: 0.2em;
       line-height: 1.2;
       margin-top: 32px;
-      font-family: "Oswald";
+      font-family: $header-font;
 
       &:hover {
         color: $nav_active;

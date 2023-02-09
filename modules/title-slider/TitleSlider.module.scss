@@ -94,7 +94,7 @@
     white-space: nowrap;
     color: $white;
     font-size: 120px;
-    font-family: "Oswald";
+    font-family: $header-font;
 
     @include adaptive("desk") {
       font-size: 86px;

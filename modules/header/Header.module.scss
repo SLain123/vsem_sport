@@ -75,7 +75,7 @@
     white-space: nowrap;
     color: $nav_passive;
     text-transform: uppercase;
-    font-family: "Oswald";
+    font-family: $header-font;
 
     &_active {
       color: $nav_active;

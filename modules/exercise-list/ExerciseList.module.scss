@@ -89,10 +89,9 @@
     top: 4px;
     color: $orange;
     border: 4px $orange solid;
-    font-family: "Oswald";
+    font-family: $header-font;
     font-size: 18px;
     opacity: 0.9;
-    padding-left: 2px;
   }
 
   &_info_block {

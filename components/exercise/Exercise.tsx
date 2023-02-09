@@ -1,21 +1,24 @@
 import React, { FC } from "react";
 import ReactMarkdown from "react-markdown";
+import YouTube, { YouTubeProps } from "react-youtube";
 
-import { ArticleAttributeType } from "types/Article";
+import { BaseImageType } from "types/Common";
 
-import styles from "./Article.module.scss";
+import styles from "./Exercise.module.scss";
 
-type Props = Omit<
-  ArticleAttributeType,
-  | "createdAt"
-  | "updatedAt"
-  | "publishedAt"
-  | "categories"
-  | "slug"
-  | "relativeArticles"
->;
+type Props = {
+  title: string;
+  description: string;
+  preview: {
+    data: {
+      id: number;
+      attributes: BaseImageType;
+    };
+  };
+  youtube: string | null;
+};
 
-const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
+const Exercise: FC<Props> = ({ title, description, preview, youtube }) => {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
   const imgUrl = {
     desk: `${baseUrl}${preview.data.attributes.url}`,
@@ -27,19 +30,14 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
       : `${baseUrl}${preview.data.attributes.url}`,
   };
   const transformImageUri = (src: string) => `${baseUrl}${src}`;
+  const opts: YouTubeProps["opts"] = { width: "100%", height: "100%" };
 
   return (
-    <div className={styles.art_container}>
-      <h1 className={styles.art_title}>{title}</h1>
+    <div className={styles.ex_container}>
+      <h1 className={styles.ex_title}>{title}</h1>
 
-      {keyWords.length && (
-        <div className={styles.art_word_container}>
-          {keyWords.map((word) => (
-            <span key={word} className={styles.art_word_item}>
-              {word}
-            </span>
-          ))}
-        </div>
+      {youtube && (
+        <YouTube videoId={youtube} opts={opts} className={styles.ex_youtube} />
       )}
 
       <picture>
@@ -51,7 +49,7 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
           height={266}
         />
         <img
-          className={styles.art_img}
+          className={styles.ex_img}
           src={imgUrl.mob}
           alt={title}
           width="100%"
@@ -59,12 +57,12 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
       </picture>
 
       <ReactMarkdown
-        children={text}
-        className={styles.art_text_block}
+        children={description}
+        className={styles.ex_text_block}
         transformImageUri={transformImageUri}
       />
     </div>
   );
 };
 
-export { Article };
+export { Exercise };

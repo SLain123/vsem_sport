@@ -50,7 +50,7 @@
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: "Oswald";
+    font-family: $header-font;
 
     &:hover {
       opacity: 1;
