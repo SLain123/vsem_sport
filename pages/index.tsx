@@ -5,10 +5,11 @@ import { GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
-import { Pagination } from "components/pagination";
+import { Pagination } from "components/ui/pagination";
 import { TopBlock } from "components/top-block";
 import { ArticleList } from "modules/article-list";
 import { TitleSlider } from "modules/title-slider";
+import { ErrorBlock } from "components/error-block";
 
 import {
   getAllArticles,
@@ -51,7 +52,11 @@ const MainPage: NextPage = () => {
         <TitleSlider />
         <MainContainer className="main_grid_container">
           <div>
-            <ArticleList title="Все статьи" articles={articles} />
+            {articles?.length ? (
+              <ArticleList title="Все статьи" articles={articles} />
+            ) : (
+              <ErrorBlock />
+            )}
             {articleData?.meta?.pagination?.pageCount && (
               <Pagination
                 page={1}

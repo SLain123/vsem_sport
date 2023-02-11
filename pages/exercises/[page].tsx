@@ -5,7 +5,7 @@ import { GetStaticPaths, GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
-import { Pagination } from "components/pagination";
+import { Pagination } from "components/ui/pagination";
 import { Banner } from "components/banner";
 import { ExerciseList } from "modules/exercise-list";
 

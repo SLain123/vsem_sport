@@ -9,9 +9,9 @@ import { BaseLayout, MainContainer } from "components/wrappers";
 import { Exercise } from "components/exercise";
 import { Banner } from "components/banner";
 import { ExerciseDetailPanel } from "components/exercise-detail-panel";
+import { AlternativeExercise } from "components/alternative-exercise";
 
 import { ExerciseAttributeType } from "types/Exercise";
-
 import {
   useGetPartByNameQuery,
   getPartByName,
@@ -24,7 +24,6 @@ import {
   useGetMiniExercicesBySlugListQuery,
   getMiniExercicesBySlugList,
 } from "redux/api/exercisesApi";
-import { AlternativeExercise } from "components/alternative-exercise";
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: ["/exercise" + "/slug"],
@@ -105,21 +104,19 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
 
       <BaseLayout>
         <MainContainer className="main_grid_container">
-          {exercise ? (
-            <div>
+          <div>
+            {exercise && (
               <Exercise
                 title={exercise.title}
                 description={exercise.description}
                 preview={exercise.preview}
                 youtube={exercise.youtube}
               />
-              {alternativeList.length ? (
-                <AlternativeExercise alternativeList={alternativeList} />
-              ) : null}
-            </div>
-          ) : (
-            <div>error component</div>
-          )}
+            )}
+            {alternativeList.length ? (
+              <AlternativeExercise alternativeList={alternativeList} />
+            ) : null}
+          </div>
 
           <div>
             {exercise && (

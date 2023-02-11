@@ -5,9 +5,10 @@ import { GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
-import { Pagination } from "components/pagination";
+import { Pagination } from "components/ui/pagination";
 import { Banner } from "components/banner";
 import { ExerciseList } from "modules/exercise-list";
+import { ErrorBlock } from "components/error-block";
 
 import {
   useGetAllExercisesQuery,
@@ -56,7 +57,11 @@ const ExercisesPage: NextPage = () => {
       <BaseLayout>
         <MainContainer className="main_grid_container">
           <div>
-            <ExerciseList title="Все упражнения" exercises={exercises} />
+            {exercises.length ? (
+              <ExerciseList title="Все упражнения" exercises={exercises} />
+            ) : (
+              <ErrorBlock />
+            )}
             {exerciseData?.meta?.pagination?.pageCount && (
               <Pagination
                 page={1}

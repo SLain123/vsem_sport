@@ -31,6 +31,14 @@ const ExerciseList: FC<Props> = ({ title, exercises }) => {
             </li>
           );
         })}
+
+        {!exercises.length && (
+          <li className={styles.item_text}>
+            Описание упражнений для данной страницы не обнаружены. Попробуйте
+            вернуться на более ранюю страницу или проверить корректность
+            используемой ссылки.
+          </li>
+        )}
       </ul>
     </div>
   );

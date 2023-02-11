@@ -5,7 +5,7 @@ import { GetStaticPaths, GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
-import { Pagination } from "components/pagination";
+import { Pagination } from "components/ui/pagination";
 import { Banner } from "components/banner";
 import { ArticleList } from "modules/article-list";
 
@@ -24,8 +24,12 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   ({ dispatch }) =>
     async ({ params }) => {
       const page = params?.page ? Number(params.page) : 2;
-      dispatch(getAllArticles.initiate(page));
 
+      if (page === 1) {
+        return { redirect: { destination: `/`, permanent: false } };
+      }
+
+      dispatch(getAllArticles.initiate(page));
       await Promise.all([
         ...dispatch(articlesApi.util.getRunningQueriesThunk()),
       ]);
