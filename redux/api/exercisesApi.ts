@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-import { ExercisesResponse } from "types/Exercise";
+import { ExercisesResponse, ExerciseMiniResponse } from "types/Exercise";
 
 export const exercisesApi = createApi({
   reducerPath: "Exercises",
@@ -40,21 +40,27 @@ export const exercisesApi = createApi({
         `/api/vs-exercises?filters[slug][$eq]=${slug}&populate=*`,
       providesTags: ["Exercises"],
     }),
-    //TODO: finished after API will be created
-    getMiniExercicesBySlugList: builder.query<any, string[]>({
+    getMiniExercicesBySlugList: builder.query<ExerciseMiniResponse, string[]>({
       query: (slugList) => {
         const query = new URLSearchParams();
         for (const slug of slugList) {
           query.append("slugList", slug);
         }
 
-        return `/api/vs-articles-get-mini?${String(query)}`;
+        return `/api/vs-exercise-get-mini?${String(query)}`;
       },
       providesTags: ["Exercises"],
     }),
   }),
 });
 
-export const { useGetAllExercisesQuery, useGetExerciseBySlugQuery } =
-  exercisesApi;
-export const { getAllExercises, getExerciseBySlug } = exercisesApi.endpoints;
+export const {
+  useGetAllExercisesQuery,
+  useGetExerciseBySlugQuery,
+  useGetMiniExercicesBySlugListQuery,
+} = exercisesApi;
+export const {
+  getAllExercises,
+  getExerciseBySlug,
+  getMiniExercicesBySlugList,
+} = exercisesApi.endpoints;

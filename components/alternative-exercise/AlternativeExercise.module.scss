@@ -1,0 +1,112 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.alt {
+  &_header {
+    color: $grey_font;
+    margin-top: 64px;
+    margin-bottom: 32px;
+
+    @include adaptive("tab") {
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &_list {
+    padding: 0;
+    list-style: none;
+  }
+
+  &_item {
+    margin-bottom: 16px;
+    display: flex;
+
+    @include adaptive("tab") {
+      flex-flow: column;
+    }
+  }
+
+  &_link {
+    position: relative;
+  }
+
+  &_img {
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 2px;
+    width: 260px;
+
+    @include adaptive("tab") {
+      width: 100%;
+    }
+  }
+
+  &_score {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey_bg;
+    border-radius: 100%;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    color: $orange;
+    border: 1px $orange solid;
+    font-family: $header-font;
+    opacity: 0.9;
+    font-size: 14px;
+  }
+
+  &_info_block {
+    margin-left: 24px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+
+    @include adaptive("tab") {
+      margin-left: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &_title {
+    font-size: 20px;
+    margin: 0;
+    max-height: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include adaptive("tab") {
+      margin: 16px 0;
+    }
+  }
+
+  &_desc {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 360px;
+    font-size: 13px;
+    color: $grey_font;
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    span {
+      color: $black_font;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      font-weight: 700;
+    }
+  }
+}

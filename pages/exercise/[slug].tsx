@@ -21,7 +21,10 @@ import {
   getExerciseBySlug,
   exercisesApi,
   useGetExerciseBySlugQuery,
+  useGetMiniExercicesBySlugListQuery,
+  getMiniExercicesBySlugList,
 } from "redux/api/exercisesApi";
+import { AlternativeExercise } from "components/alternative-exercise";
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: ["/exercise" + "/slug"],
@@ -36,12 +39,20 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       if (slug === "") {
         return { redirect: { destination: `/`, permanent: false } };
       }
+
       dispatch(getExerciseBySlug.initiate(String(slug)));
       await Promise.all(dispatch(exercisesApi.util.getRunningQueriesThunk()));
+
       const exercise = getExerciseBySlug.select(String(slug))(getState());
+      const slugList = exercise?.data?.data[0]?.attributes?.alternativeList
+        ? exercise.data.data[0].attributes.alternativeList
+        : [];
       const bodyPart = exercise?.data?.data[0]?.attributes?.partOfBody
         ? exercise.data.data[0].attributes.partOfBody
         : null;
+
+      dispatch(getMiniExercicesBySlugList.initiate(slugList));
+      await Promise.all(dispatch(exercisesApi.util.getRunningQueriesThunk()));
 
       if (bodyPart) {
         dispatch(getPartByName.initiate(bodyPart));
@@ -63,6 +74,13 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
   const exercise: ExerciseAttributeType | null = exerciseData?.data?.length
     ? exerciseData.data[0].attributes
     : null;
+
+  const { data: alternativeData } = useGetMiniExercicesBySlugListQuery(
+    exercise?.alternativeList ? exercise.alternativeList : []
+  );
+  const alternativeList = alternativeData?.exerciseList?.length
+    ? alternativeData.exerciseList
+    : [];
 
   const { data: bodyPartData } = useGetPartByNameQuery(String(bodyPart));
   const bodyPartUrl = bodyPartData?.data[0]?.attributes?.preview?.data
@@ -88,12 +106,17 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
       <BaseLayout>
         <MainContainer className="main_grid_container">
           {exercise ? (
-            <Exercise
-              title={exercise.title}
-              description={exercise.description}
-              preview={exercise.preview}
-              youtube={exercise.youtube}
-            />
+            <div>
+              <Exercise
+                title={exercise.title}
+                description={exercise.description}
+                preview={exercise.preview}
+                youtube={exercise.youtube}
+              />
+              {alternativeList.length ? (
+                <AlternativeExercise alternativeList={alternativeList} />
+              ) : null}
+            </div>
           ) : (
             <div>error component</div>
           )}
@@ -112,10 +135,6 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
             )}
             <Banner />
           </div>
-        </MainContainer>
-
-        <MainContainer>
-          <div>Relative exercises here</div>
         </MainContainer>
       </BaseLayout>
     </>

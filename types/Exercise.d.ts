@@ -34,3 +34,18 @@ export type ExercisesResponse = {
     pagination: PaginationType;
   };
 };
+
+export type ExerciseMini = {
+  id: number;
+  title: string;
+  slug: string;
+  equipment: string;
+  partOfBody: string;
+  score: number;
+  preview: string;
+  level: string;
+};
+
+export type ExerciseMiniResponse = {
+  exerciseList: ExerciseMini[];
+};

@@ -1,23 +1,25 @@
 import React, { FC } from "react";
 import Link from "next/link";
 
-import { ExerciseAttributeType } from "types/Exercise";
-
+import { BaseImageType } from "types/Common";
 import { cropText } from "utils/textCropper";
 
 import styles from "../ExerciseList.module.scss";
 
-export type ExerciseItemType = Omit<
-  ExerciseAttributeType,
-  | "alternativeList"
-  | "createdAt"
-  | "description"
-  | "extraBodyParts"
-  | "publishedAt"
-  | "updatedAt"
-  | "youtube"
-  | "exType"
->;
+export type ExerciseItemType = {
+  equipment: string;
+  level: string;
+  partOfBody: string;
+  preview: {
+    data: {
+      id: number;
+      attributes: BaseImageType;
+    };
+  };
+  score: number;
+  slug: string;
+  title: string;
+};
 
 const ExerciseItem: FC<ExerciseItemType> = ({
   equipment,
