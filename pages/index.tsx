@@ -10,6 +10,7 @@ import { TopBlock } from "components/top-block";
 import { ArticleList } from "modules/article-list";
 import { TitleSlider } from "modules/title-slider";
 import { ErrorBlock } from "components/error-block";
+import { CategorySide } from "modules/categories-list";
 
 import {
   getAllArticles,
@@ -66,10 +67,13 @@ const MainPage: NextPage = () => {
               />
             )}
           </div>
-          <TopBlock
-            topList={topList}
-            title="Топ 10 статей по всем видам спорта:"
-          />
+          <div>
+            <TopBlock
+              topList={topList}
+              title="Топ 10 статей по всем видам спорта:"
+            />
+            <CategorySide />
+          </div>
         </MainContainer>
       </BaseLayout>
     </>

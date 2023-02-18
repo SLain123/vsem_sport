@@ -10,10 +10,10 @@ import photo4 from "public/img/title-slides/4.jpg";
 import photo5 from "public/img/title-slides/5.jpg";
 import photo6 from "public/img/title-slides/6.jpg";
 
-const categories = [
+export const categories = [
   {
     id: 0,
-    title: "Раздел о беге",
+    title: "О беге",
     href: "run",
     imgSrc: photo1,
     desc: [
@@ -23,7 +23,7 @@ const categories = [
   },
   {
     id: 1,
-    title: "Раздел о кроссфите",
+    title: "О кроссфите",
     href: "crossfit",
     imgSrc: photo2,
     desc: [
@@ -33,7 +33,7 @@ const categories = [
   },
   {
     id: 2,
-    title: "Раздел о бодибилдинге",
+    title: "О бодибилдинге",
     href: "bodybuilding",
     imgSrc: photo3,
     desc: [
@@ -43,7 +43,7 @@ const categories = [
   },
   {
     id: 3,
-    title: "Раздел посвященный йоге",
+    title: "О йоге",
     href: "yoga",
     imgSrc: photo4,
     desc: [
@@ -53,7 +53,7 @@ const categories = [
   },
   {
     id: 4,
-    title: "Раздел о фитнесе",
+    title: "О фитнесе",
     href: "fitnes",
     imgSrc: photo5,
     desc: [
@@ -63,7 +63,7 @@ const categories = [
   },
   {
     id: 5,
-    title: "Различные спортивные статьи",
+    title: "Другие статьи",
     href: "other",
     imgSrc: photo6,
     desc: [

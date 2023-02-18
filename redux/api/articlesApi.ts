@@ -35,7 +35,7 @@ export const articlesApi = createApi({
       { page: number; category: Categories }
     >({
       query: ({ page, category }) =>
-        `/api/vs-articles-by-category?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=5&category=${category}`,
+        `/api/vs-articles-by-category?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=10&category=${category}`,
       providesTags: ["Articles"],
     }),
     getArticleBySlug: builder.query<ArticlesResponse, string>({

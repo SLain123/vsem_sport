@@ -9,6 +9,7 @@ import { Pagination } from "components/ui/pagination";
 import { TopBlock } from "components/top-block";
 import { ArticleList } from "modules/article-list";
 import { ErrorBlock } from "components/error-block";
+import { CategorySide } from "modules/categories-list";
 
 import {
   getAllArticlesByCategories,
@@ -73,10 +74,13 @@ const OtherPage: NextPage = () => {
             )}
           </div>
 
-          <TopBlock
-            topList={topList}
-            title="Топ 10 статей по околоспортивной темматике:"
-          />
+          <div>
+            <TopBlock
+              topList={topList}
+              title="Топ 10 статей по околоспортивной темматике:"
+            />
+            <CategorySide />
+          </div>
         </MainContainer>
       </BaseLayout>
     </>

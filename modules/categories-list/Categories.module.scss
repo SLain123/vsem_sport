@@ -18,7 +18,6 @@
     margin-bottom: 64px;
     font-size: 42px;
     user-select: none;
-    
 
     @include adaptive("desk") {
       margin-bottom: 32px;
@@ -115,6 +114,61 @@
     @include adaptive("mob-l") {
       font-size: 14px;
       line-height: 22px;
+    }
+  }
+}
+
+.side {
+  &_container {
+    position: sticky;
+    top: 72px;
+    left: 0;
+
+    @include adaptive("mob-l") {
+      display: none;
+    }
+  }
+
+  &_header {
+    color: $grey_font;
+  }
+
+  &_link_block {
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  &_link {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    color: $orange;
+    font-weight: 700;
+
+    &:nth-child(1) {
+      border: 1px solid $green_border;
+    }
+
+    &:nth-child(2) {
+      border: 1px solid $red_border;
+    }
+
+    &:nth-child(3) {
+      border: 1px solid $blue_border;
+    }
+
+    &:nth-child(4) {
+      border: 1px solid $purple_border;
+    }
+
+    &:nth-child(5) {
+      border: 1px solid $red_border;
+    }
+
+    &:nth-child(6) {
+      border: 1px solid $green_border;
     }
   }
 }

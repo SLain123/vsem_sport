@@ -162,6 +162,7 @@
     user-select: none;
     white-space: nowrap;
     margin-bottom: 8px;
+    text-transform: lowercase;
 
     @include adaptive("tab-l") {
       font-size: 14px;

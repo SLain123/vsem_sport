@@ -61,7 +61,10 @@ const ExercisesAllPage: NextPage<{ page: number }> = ({ page }) => {
       <Head>
         <title>Все упражнения</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
-        <meta name="robots" content="all" />
+        <meta
+          name="robots"
+          content={exercises.length ? "all" : "noindex, nofollow"}
+        />
       </Head>
 
       <BaseLayout>
