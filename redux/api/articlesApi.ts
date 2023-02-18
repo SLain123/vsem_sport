@@ -27,7 +27,7 @@ export const articlesApi = createApi({
   endpoints: (builder) => ({
     getAllArticles: builder.query<ArticlesResponse, number>({
       query: (page) =>
-        `/api/vs-articles?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=10`,
+        `/api/vs-articles?populate=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=10&sort[0]=updatedAt%3Adesc`,
       providesTags: ["Articles"],
     }),
     getAllArticlesByCategories: builder.query<
