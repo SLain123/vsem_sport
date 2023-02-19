@@ -6,6 +6,7 @@ import { topApi } from "./api/topApi";
 import { exercisesApi } from "./api/exercisesApi";
 import { filtersApi } from "./api/filtersApi";
 import { bodyPartsApi } from "./api/bodyPartsApi";
+import { programsApi } from "./api/programsApi";
 
 const makeStore = () =>
   configureStore({
@@ -15,6 +16,7 @@ const makeStore = () =>
       [exercisesApi.reducerPath]: exercisesApi.reducer,
       [filtersApi.reducerPath]: filtersApi.reducer,
       [bodyPartsApi.reducerPath]: bodyPartsApi.reducer,
+      [programsApi.reducerPath]: programsApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
@@ -22,7 +24,8 @@ const makeStore = () =>
         topApi.middleware,
         exercisesApi.middleware,
         filtersApi.middleware,
-        bodyPartsApi.middleware
+        bodyPartsApi.middleware,
+        programsApi.middleware
       ),
     devTools: process.env.NODE_ENV === "development",
   });

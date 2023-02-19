@@ -1,19 +1,22 @@
 import React, { FC } from "react";
 import ReactMarkdown from "react-markdown";
 
-import { ArticleAttributeType } from "types/Article";
+import { BaseImageType } from "types/Common";
 
 import styles from "./Article.module.scss";
 
-type Props = Omit<
-  ArticleAttributeType,
-  | "createdAt"
-  | "updatedAt"
-  | "publishedAt"
-  | "categories"
-  | "slug"
-  | "relativeArticles"
->;
+type Props = {
+  title: string;
+  keyWords: string[];
+  preview: {
+    data: {
+      id: number;
+      attributes: BaseImageType;
+    };
+  };
+  text: string;
+  comments: string[] | null;
+};
 
 const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL;

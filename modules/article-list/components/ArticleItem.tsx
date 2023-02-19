@@ -16,6 +16,7 @@ type ArticleItemType = Omit<
   | "comments"
   | "categories"
   | "relativeArticles"
+  | "publish_at"
 >;
 
 const ArticleItem: FC<ArticleItemType> = ({
