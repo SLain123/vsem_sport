@@ -58,6 +58,7 @@
       font-weight: 700;
       margin-top: 16px;
       text-transform: uppercase;
+      transition: 0.3s ease;
 
       a {
         color: rgba(255, 255, 255, 0.38);
@@ -85,6 +86,7 @@
       line-height: 1.2;
       margin-top: 32px;
       font-family: $header-font;
+      transition: 0.3s ease;
 
       &:hover {
         color: $nav_active;

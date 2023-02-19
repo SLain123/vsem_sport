@@ -25,6 +25,7 @@ export type ArticleAttributeType = {
     };
   };
   relativeArticles: string[];
+  publish_at: string;
 };
 
 export type ArticleType = {

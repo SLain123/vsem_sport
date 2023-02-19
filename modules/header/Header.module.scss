@@ -76,6 +76,7 @@
     color: $nav_passive;
     text-transform: uppercase;
     font-family: $header-font;
+    transition: 0.3s ease;
 
     &_active {
       color: $nav_active;

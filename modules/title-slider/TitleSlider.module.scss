@@ -9,6 +9,7 @@
       color: $orange;
       font-weight: 700;
       opacity: 0.8;
+      transition: 0.3s ease;
 
       &:hover {
         opacity: 1;
@@ -19,6 +20,7 @@
       color: $orange;
       font-weight: 700;
       opacity: 0.8;
+      transition: 0.3s ease;
 
       &:hover {
         opacity: 1;
@@ -72,6 +74,7 @@
     border: none;
     cursor: pointer;
     opacity: 0.5;
+    transition: 0.3s ease;
 
     &:hover {
       opacity: 1;
@@ -167,6 +170,7 @@
     letter-spacing: 1px;
     opacity: 0.8;
     line-height: 48px;
+    transition: 0.3s ease;
 
     @include adaptive("desk") {
       font-size: 18px;

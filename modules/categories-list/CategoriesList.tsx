@@ -13,7 +13,7 @@ import photo6 from "public/img/title-slides/6.jpg";
 export const categories = [
   {
     id: 0,
-    title: "О беге",
+    title: "Бег",
     href: "run",
     imgSrc: photo1,
     desc: [
@@ -23,7 +23,7 @@ export const categories = [
   },
   {
     id: 1,
-    title: "О кроссфите",
+    title: "Кроссфит",
     href: "crossfit",
     imgSrc: photo2,
     desc: [
@@ -33,7 +33,7 @@ export const categories = [
   },
   {
     id: 2,
-    title: "О бодибилдинге",
+    title: "Бодибилдинг",
     href: "bodybuilding",
     imgSrc: photo3,
     desc: [
@@ -43,7 +43,7 @@ export const categories = [
   },
   {
     id: 3,
-    title: "О йоге",
+    title: "Йога",
     href: "yoga",
     imgSrc: photo4,
     desc: [
@@ -53,7 +53,7 @@ export const categories = [
   },
   {
     id: 4,
-    title: "О фитнесе",
+    title: "Фитнес",
     href: "fitnes",
     imgSrc: photo5,
     desc: [

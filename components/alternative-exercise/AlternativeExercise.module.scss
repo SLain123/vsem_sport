@@ -78,6 +78,7 @@
     max-height: 64px;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: 0.3s ease;
 
     &:hover {
       opacity: 0.9;

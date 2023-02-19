@@ -21,6 +21,7 @@ export type ExerciseAttributeType = {
   title: string;
   updatedAt: string;
   youtube: string | null;
+  publish_at: string;
 };
 
 export type ExerciseType = {

@@ -50,6 +50,7 @@
     margin-right: 4px;
     cursor: pointer;
     padding: 24px;
+    transition: 0.3s ease;
 
     &:hover .cat_img {
       filter: brightness(0.2) grayscale(80%);
@@ -141,34 +142,78 @@
   &_link {
     padding: 4px 8px;
     border-radius: 4px;
-    font-size: 14px;
-    margin-right: 8px;
-    margin-bottom: 8px;
+    font-size: 15px;
+    margin: 4px;
     color: $orange;
     font-weight: 700;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
 
     &:nth-child(1) {
       border: 1px solid $green_border;
+
+      &:hover {
+        background-color: $green;
+      }
     }
 
     &:nth-child(2) {
       border: 1px solid $red_border;
+
+      &:hover {
+        background-color: $red;
+      }
     }
 
     &:nth-child(3) {
       border: 1px solid $blue_border;
+
+      &:hover {
+        background-color: $blue;
+      }
     }
 
     &:nth-child(4) {
       border: 1px solid $purple_border;
+
+      &:hover {
+        background-color: $purple;
+      }
     }
 
     &:nth-child(5) {
       border: 1px solid $red_border;
+
+      &:hover {
+        background-color: $red;
+      }
     }
 
     &:nth-child(6) {
       border: 1px solid $green_border;
+
+      &:hover {
+        background-color: $green;
+      }
+    }
+
+    &:nth-child(7) {
+      border: 1px solid $red_border;
+
+      &:hover {
+        background-color: $red;
+      }
+    }
+
+    &:nth-child(8) {
+      border: 1px solid $green_border;
+
+      &:hover {
+        background-color: $green;
+      }
     }
   }
 }

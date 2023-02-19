@@ -9,6 +9,9 @@ const CategorySide: FC = () => {
     <div className={styles.side_container}>
       <p className={styles.side_header}>Быстрые ссылки:</p>
       <div className={styles.side_link_block}>
+        <Link href="/" className={styles.side_link}>
+          Все
+        </Link>
         {categories.map(({ id, title, href }) => (
           <Link key={id} href={href} className={styles.side_link}>
             {title}
