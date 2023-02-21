@@ -75,10 +75,12 @@ const OtherPage: NextPage = () => {
           </div>
 
           <div>
-            <TopBlock
-              topList={topList}
-              title="Топ 10 статей по околоспортивной темматике:"
-            />
+            {topList.length ? (
+              <TopBlock
+                topList={topList}
+                title={`Топ ${topList.length} статей на различную темматику`}
+              />
+            ) : null}
             <CategorySide />
           </div>
         </MainContainer>

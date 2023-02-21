@@ -97,6 +97,20 @@
       text-decoration: none;
       color: $black_font;
       padding: 4px 24px;
+      display: flex;
+      align-items: center;
+      
+
+      &:before {
+        content: "";
+        display: block;
+        min-width: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        background-color: $orange;
+        margin-right: 8px;
+      }
 
       &:first-child {
         margin-top: 16px;

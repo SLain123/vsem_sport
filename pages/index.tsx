@@ -68,10 +68,12 @@ const MainPage: NextPage = () => {
             )}
           </div>
           <div>
-            <TopBlock
-              topList={topList}
-              title="Топ 10 статей по всем видам спорта:"
-            />
+            {topList.length ? (
+              <TopBlock
+                topList={topList}
+                title={`Топ ${topList.length} статей по всем видам спорта`}
+              />
+            ) : null}
             <CategorySide />
           </div>
         </MainContainer>

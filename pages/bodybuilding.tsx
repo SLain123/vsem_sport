@@ -75,10 +75,12 @@ const BodybuildingPage: NextPage = () => {
           </div>
 
           <div>
-            <TopBlock
-              topList={topList}
-              title="Топ 10 статей по бодибилдингу:"
-            />
+            {topList.length ? (
+              <TopBlock
+                topList={topList}
+                title={`Топ ${topList.length} статей по бодибилдингу`}
+              />
+            ) : null}
             <CategorySide />
           </div>
         </MainContainer>

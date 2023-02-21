@@ -72,7 +72,12 @@ const RunPage: NextPage = () => {
           </div>
 
           <div>
-            <TopBlock topList={topList} title="Топ 10 статей по бегу:" />
+            {topList.length ? (
+              <TopBlock
+                topList={topList}
+                title={`Топ ${topList.length} статей по бегу`}
+              />
+            ) : null}
             <CategorySide />
           </div>
         </MainContainer>

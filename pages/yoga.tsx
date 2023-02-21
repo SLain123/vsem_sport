@@ -72,7 +72,12 @@ const YogaPage: NextPage = () => {
           </div>
 
           <div>
-            <TopBlock topList={topList} title="Топ 10 статей по йоге:" />
+            {topList.length ? (
+              <TopBlock
+                topList={topList}
+                title={`Топ ${topList.length} статей по йоге`}
+              />
+            ) : null}
             <CategorySide />
           </div>
         </MainContainer>

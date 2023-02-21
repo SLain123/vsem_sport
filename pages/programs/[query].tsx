@@ -6,14 +6,16 @@ import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { ProgramList } from "modules/program-list";
-// import { TopBlock } from "components/top-block";
-// import { ErrorBlock } from "components/error-block";
+import { TopBlock } from "components/top-block";
+import { ErrorBlock } from "components/error-block";
+import { Banner } from "components/banner";
 
 import {
   getProgramInfo,
   programsApi,
   useGetProgramInfoQuery,
 } from "redux/api/programsApi";
+import { getTopByName, useGetTopByNameQuery, topApi } from "redux/api/topApi";
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: ["/programs/query"],
@@ -26,10 +28,10 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       let preExpanded = -1;
 
       dispatch(getProgramInfo.initiate());
-      // dispatch(getTopByName.initiate("all-sports"));
+      dispatch(getTopByName.initiate("programs"));
       await Promise.all([
         ...dispatch(programsApi.util.getRunningQueriesThunk()),
-        // ...dispatch(topApi.util.getRunningQueriesThunk()),
+        ...dispatch(topApi.util.getRunningQueriesThunk()),
       ]);
 
       if (params?.query) {
@@ -54,7 +56,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
 const ProgramsPage: NextPage<{ preExpanded: number }> = ({ preExpanded }) => {
   const { data: programData } = useGetProgramInfoQuery();
+  const { data: topData } = useGetTopByNameQuery("programs");
   const programInfo = programData?.data?.length ? programData.data : [];
+  const topList = topData?.data?.length ? topData.data[0].attributes.list : [];
 
   return (
     <>
@@ -66,12 +70,24 @@ const ProgramsPage: NextPage<{ preExpanded: number }> = ({ preExpanded }) => {
       <BaseLayout>
         <MainContainer className="main_grid_container">
           <div>
-            <ProgramList
-              programInfo={programInfo}
-              preExpanded={preExpanded > -1 ? [preExpanded] : []}
-            />
+            {programInfo.length ? (
+              <ProgramList
+                programInfo={programInfo}
+                preExpanded={preExpanded > -1 ? [preExpanded] : []}
+              />
+            ) : (
+              <ErrorBlock />
+            )}
           </div>
-          <div>Right side</div>
+          <div>
+            {topList.length ? (
+              <TopBlock
+                topList={topList}
+                title={`Топ ${topList.length} программ`}
+              />
+            ) : null}
+            <Banner />
+          </div>
         </MainContainer>
       </BaseLayout>
     </>
