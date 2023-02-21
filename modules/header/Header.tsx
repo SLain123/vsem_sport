@@ -14,7 +14,7 @@ import styles from "./Header.module.scss";
 import Logo from "public/img/logo-header.png";
 
 const navList = [
-  { id: 1, title: "Посмотреть программы", link: "/trainings" },
+  { id: 1, title: "Посмотреть программы", link: "/programs/all" },
   { id: 2, title: "Выбрать категорию спорта", link: "/categories" },
   { id: 0, title: "Описание упражнений", link: "/exercises" },
   { id: 3, title: "Контакты", link: "/contacts" },

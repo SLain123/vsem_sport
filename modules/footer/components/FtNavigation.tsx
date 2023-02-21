@@ -5,41 +5,54 @@ import { FtNavItem } from "./FtNavItem";
 import styles from "../Footer.module.scss";
 import TrainingsIcon from "../../../public/icon/footer/trainings.svg";
 import SportsIcon from "../../../public/icon/footer/sports.svg";
+import ExerciseIcon from "../../../public/icon/footer/exercise.svg";
 import ContactsIcon from "../../../public/icon/footer/contacts.svg";
 
 const navList = [
   {
     id: 0,
     title: "Программы тренировок",
-    link: "/trainings",
+    link: "/programs/all",
     IconSrc: TrainingsIcon,
     subLinkList: [
-      { id: 10, title: "Набор мышечной массы", link: "/trainings" },
-      { id: 11, title: "Сбросить вес", link: "/trainings" },
-      { id: 12, title: "Увеличить общую выносливость", link: "/trainings" },
-      { id: 13, title: "Женские программы", link: "/trainings" },
+      { id: 10, title: "Набор мышечной массы", link: "/programs/up_mass" },
+      { id: 11, title: "Сбросить вес", link: "/programs/down_weight" },
+      {
+        id: 12,
+        title: "Увеличить выносливость",
+        link: "programs/increase_stamina",
+      },
+      { id: 13, title: "Женские программы", link: "programs/women" },
     ],
   },
   {
     id: 1,
-    title: "Спортивные разделы",
-    link: "/sports",
+    title: "Спортивные категории",
+    link: "/categories",
     IconSrc: SportsIcon,
     subLinkList: [
-      { id: 20, title: "Фитнес", link: "/sports" },
-      { id: 21, title: "Бег", link: "/sports" },
-      { id: 22, title: "Кроссфит", link: "/sports" },
-      { id: 23, title: "Йога", link: "/sports" },
-      { id: 24, title: "Бодибилдинг", link: "/sports" },
+      { id: 20, title: "Фитнес", link: "/fitnes" },
+      { id: 21, title: "Бег", link: "/run" },
+      { id: 22, title: "Кроссфит", link: "/crossfit" },
+      { id: 23, title: "Йога", link: "/yoga" },
+      { id: 24, title: "Бодибилдинг", link: "/bodybuilding" },
+      { id: 25, title: "Разное", link: "/other" },
     ],
   },
   {
     id: 2,
+    title: "Описание упражнений",
+    link: "/exercises",
+    IconSrc: ExerciseIcon,
+    subLinkList: [{ id: 30, title: "Что то о беге", link: "/exercises" }],
+  },
+  {
+    id: 3,
     title: "Наши контакты",
     link: "/contacts",
     IconSrc: ContactsIcon,
     subLinkList: [
-      { id: 30, title: "Email", link: "example@mail.ru", email: true },
+      { id: 40, title: "Email", link: "example@mail.ru", email: true },
     ],
   },
 ];
