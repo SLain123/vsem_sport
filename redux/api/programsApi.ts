@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
 import { ProgramListResponse } from "types/Program";
-import { ArticlesResponse } from "types/Article";
+import { ArticlesResponse, ArticleMiniResponse } from "types/Article";
 
 export const programsApi = createApi({
   reducerPath: "Programs",
@@ -30,19 +30,24 @@ export const programsApi = createApi({
       query: (slug) => `/api/vs-programs?filters[slug][$eq]=${slug}&populate=*`,
       providesTags: ["Programs"],
     }),
-    // getMiniArticlesBySlugList: builder.query<ArticleMiniResponse, string[]>({
-    //   query: (slugList) => {
-    //     const query = new URLSearchParams();
-    //     for (const slug of slugList) {
-    //       query.append("slugList", slug);
-    //     }
+    getMiniProgramsBySlugList: builder.query<ArticleMiniResponse, string[]>({
+      query: (slugList) => {
+        const query = new URLSearchParams();
+        for (const slug of slugList) {
+          query.append("slugList", slug);
+        }
 
-    //     return `/api/vs-articles-get-mini?${String(query)}`;
-    //   },
-    //   providesTags: ["Articles"],
-    // }),
+        return `/api/vs-program-get-mini?${String(query)}`;
+      },
+      providesTags: ["Programs"],
+    }),
   }),
 });
 
-export const { useGetProgramInfoQuery } = programsApi;
-export const { getProgramInfo } = programsApi.endpoints;
+export const {
+  useGetProgramInfoQuery,
+  useGetProgramBySlugQuery,
+  useGetMiniProgramsBySlugListQuery,
+} = programsApi;
+export const { getProgramInfo, getProgramBySlug, getMiniProgramsBySlugList } =
+  programsApi.endpoints;

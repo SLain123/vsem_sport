@@ -20,9 +20,9 @@ const navList = [
       {
         id: 12,
         title: "Увеличить выносливость",
-        link: "programs/increase_stamina",
+        link: "/programs/increase_stamina",
       },
-      { id: 13, title: "Женские программы", link: "programs/women" },
+      { id: 13, title: "Женские программы", link: "/programs/women" },
     ],
   },
   {
