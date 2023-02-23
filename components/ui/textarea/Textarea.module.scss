@@ -1,0 +1,31 @@
+@import "styles/variables";
+
+.area {
+  border-radius: 2px;
+  border: 1px solid $orange;
+  background-color: white;
+  width: 100%;
+  font-family: $main-font;
+  font-size: 16px;
+  padding: 8px 16px;
+  color: $orange;
+  outline: none;
+
+  &:focus {
+    border: 2px solid $orange;
+  }
+
+  &::placeholder {
+    color: $red;
+  }
+
+  &_error {
+    border: 2px solid $error;
+    color: $error;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

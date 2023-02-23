@@ -5,7 +5,7 @@ import { GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
-import { Pagination } from "components/ui/pagination";
+import { Pagination } from "components/ui";
 import { TopBlock } from "components/top-block";
 import { ArticleList } from "modules/article-list";
 import { TitleSlider } from "modules/title-slider";

@@ -6,7 +6,7 @@ import { wrapper } from "redux/store";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { TopBlock } from "components/top-block";
-import { Pagination } from "components/ui/pagination";
+import { Pagination } from "components/ui";
 import { ArticleList } from "modules/article-list";
 import { ErrorBlock } from "components/error-block";
 import { CategorySide } from "modules/categories-list";

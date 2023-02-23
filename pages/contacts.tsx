@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import { NextPage } from "next";
 
-import { BaseLayout } from "components/wrappers";
-import { DevStub } from "components/dev-stub";
+import { BaseLayout, MainContainer } from "components/wrappers";
+import { ContactForm } from "modules/contact-form";
 
 const ContactsPage: NextPage = () => {
   return (
@@ -14,7 +14,9 @@ const ContactsPage: NextPage = () => {
         <meta name="robots" content="all" />
       </Head>
       <BaseLayout>
-        <DevStub message="Портал 'Всем спорт' находится в разработке" />
+        <MainContainer>
+          <ContactForm />
+        </MainContainer>
       </BaseLayout>
     </>
   );

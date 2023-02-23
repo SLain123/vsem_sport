@@ -1,0 +1,19 @@
+.form {
+  &_container {
+    height: 500px;
+    width: 520px;
+    padding: 24px;
+    margin: 64px auto;
+  }
+
+  &_field {
+    margin-bottom: 24px;
+  }
+
+  &_label {
+    margin-bottom: 4px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
