@@ -1,13 +1,25 @@
+@import "styles/variables";
+@import "styles/mixin.scss";
+
 .form {
   &_container {
-    height: 500px;
-    width: 520px;
+    width: 100%;
+    max-width: 520px;
     padding: 24px;
     margin: 64px auto;
+
+    @include adaptive("mob-l") {
+      margin: 24px auto;
+      padding: 8px;
+    }
   }
 
   &_field {
     margin-bottom: 24px;
+
+    @include adaptive("mob-l") {
+      margin-bottom: 16px;
+    }
   }
 
   &_label {
@@ -15,5 +27,37 @@
     display: inline-block;
     cursor: pointer;
     font-size: 14px;
+  }
+
+  &_privacy {
+    margin: 42px 0;
+
+    @include adaptive("mob-l") {
+      margin: 24px 0;
+    }
+  }
+
+  &_btn {
+    margin-top: 24px;
+
+    @include adaptive("mob-l") {
+      margin-top: 16px;
+    }
+  }
+
+  &_success {
+    color: $green_font;
+    font-size: 16px;
+    letter-spacing: -0.4px;
+    text-align: center;
+    margin: 0;
+  }
+
+  &_error {
+    color: $error;
+    font-size: 16px;
+    letter-spacing: -0.4px;
+    text-align: center;
+    margin: 0;
   }
 }

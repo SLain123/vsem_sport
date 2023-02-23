@@ -22,6 +22,14 @@
   &_error {
     border: 2px solid $error;
     color: $error;
+
+    &_message {
+      color: $error;
+      margin-top: 8px;
+      font-size: 14px;
+      display: inline-block;
+      letter-spacing: 1px; 
+    }
   }
 
   &:disabled {

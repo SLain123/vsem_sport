@@ -1,6 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from "react";
-
-import { useEffectAfterMount } from "hooks/useEffectAfterMount";
+import React, { FC, useState, useEffect } from "react";
 
 import styles from "./Input.module.scss";
 
@@ -11,6 +9,7 @@ export type InputType = {
   height?: number;
   placeholder?: string;
   error?: boolean;
+  errorMessage?: string;
   onChange: (
     evt: React.ChangeEvent<HTMLInputElement> | {},
     value: string,
@@ -43,6 +42,7 @@ const Input: FC<InputType> = ({
   height = 48,
   placeholder = "",
   error = false,
+  errorMessage,
   onChange,
   onBlur,
   onFocus,
@@ -52,8 +52,6 @@ const Input: FC<InputType> = ({
   className: userClass = "",
   type = "text",
 }) => {
-  const onChangeEvent = useRef<HTMLInputElement | {}>({});
-
   const [inputValue, setInputValue] = useState(
     defaultValue ? defaultValue : ""
   );
@@ -61,35 +59,36 @@ const Input: FC<InputType> = ({
   const errorStyle = error ? styles.input_error : "";
   const mainInputStyle = `${styles.input} ${errorStyle} ${userClass}`;
 
-  useEffectAfterMount(() => {
-    onChange(onChangeEvent.current, inputValue, name);
-  }, [inputValue]);
-
   useEffect(() => {
     value && setInputValue(value);
   }, [value]);
 
   return (
-    <input
-      className={mainInputStyle}
-      id={id}
-      value={value ? value : inputValue}
-      onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(evt.target.value);
-        onChangeEvent.current = evt;
-      }}
-      onBlur={(evt: React.FocusEvent<HTMLInputElement>) => {
-        onBlur ? onBlur(evt, inputValue, name) : null;
-      }}
-      onFocus={(evt: React.FocusEvent<HTMLInputElement>) => {
-        onFocus ? onFocus(evt, inputValue, name) : null;
-      }}
-      ref={inputRef}
-      type={type}
-      placeholder={placeholder}
-      disabled={disabled}
-      style={{ height }}
-    />
+    <>
+      <input
+        className={mainInputStyle}
+        id={id}
+        value={value ? value : inputValue}
+        onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
+          setInputValue(evt.target.value);
+          onChange(evt, evt.target.value, name);
+        }}
+        onBlur={(evt: React.FocusEvent<HTMLInputElement>) => {
+          onBlur ? onBlur(evt, inputValue, name) : null;
+        }}
+        onFocus={(evt: React.FocusEvent<HTMLInputElement>) => {
+          onFocus ? onFocus(evt, inputValue, name) : null;
+        }}
+        ref={inputRef}
+        type={type}
+        placeholder={placeholder}
+        disabled={disabled}
+        style={{ height }}
+      />
+      {error && errorMessage && (
+        <span className={styles.input_error_message}>{errorMessage}</span>
+      )}
+    </>
   );
 };
 

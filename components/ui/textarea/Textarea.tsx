@@ -1,6 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from "react";
-
-import { useEffectAfterMount } from "hooks/useEffectAfterMount";
+import React, { FC, useState, useEffect } from "react";
 
 import styles from "./Textarea.module.scss";
 
@@ -11,6 +9,7 @@ export type TextareaType = {
   rows?: number;
   placeholder?: string;
   error?: boolean;
+  errorMessage?: string;
   onChange: (
     evt: React.ChangeEvent<HTMLTextAreaElement> | {},
     value: string,
@@ -43,51 +42,51 @@ const Textarea: FC<TextareaType> = ({
   rows = 8,
   placeholder = "",
   error = false,
+  errorMessage,
   onChange,
   onBlur,
   onFocus,
   areaRef,
-  defaultValue,
   value,
+  defaultValue,
   className: userClass = "",
   resize = "both",
 }) => {
-  const onChangeEvent = useRef<HTMLTextAreaElement | {}>({});
-
   const [areaValue, setAreaValue] = useState(defaultValue ? defaultValue : "");
 
   const errorStyle = error ? styles.area_error : "";
   const mainAreaStyle = `${styles.area} ${errorStyle} ${userClass}`;
-
-  useEffectAfterMount(() => {
-    onChange(onChangeEvent.current, areaValue, name);
-  }, [areaValue]);
 
   useEffect(() => {
     value && setAreaValue(value);
   }, [value]);
 
   return (
-    <textarea
-      className={mainAreaStyle}
-      id={id}
-      value={value ? value : areaValue}
-      onChange={(evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setAreaValue(evt.target.value);
-        onChangeEvent.current = evt;
-      }}
-      onBlur={(evt: React.FocusEvent<HTMLTextAreaElement>) => {
-        onBlur ? onBlur(evt, areaValue, name) : null;
-      }}
-      onFocus={(evt: React.FocusEvent<HTMLTextAreaElement>) => {
-        onFocus ? onFocus(evt, areaValue, name) : null;
-      }}
-      ref={areaRef}
-      placeholder={placeholder}
-      disabled={disabled}
-      rows={rows}
-      style={{ resize }}
-    />
+    <>
+      <textarea
+        className={mainAreaStyle}
+        id={id}
+        value={value ? value : areaValue}
+        onChange={(evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+          setAreaValue(evt.target.value);
+          onChange(evt, evt.target.value, name);
+        }}
+        onBlur={(evt: React.FocusEvent<HTMLTextAreaElement>) => {
+          onBlur ? onBlur(evt, areaValue, name) : null;
+        }}
+        onFocus={(evt: React.FocusEvent<HTMLTextAreaElement>) => {
+          onFocus ? onFocus(evt, areaValue, name) : null;
+        }}
+        ref={areaRef}
+        placeholder={placeholder}
+        disabled={disabled}
+        rows={rows}
+        style={{ resize }}
+      />
+      {error && errorMessage && (
+        <span className={styles.area_error_message}>{errorMessage}</span>
+      )}
+    </>
   );
 };
 
