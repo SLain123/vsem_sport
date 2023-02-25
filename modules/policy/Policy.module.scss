@@ -1,0 +1,16 @@
+.policy {
+  &_container {
+    margin: 64px 0;
+  }
+
+  &_ru {
+    & ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    & li {
+      margin-bottom: 8px;
+    }
+  }
+}

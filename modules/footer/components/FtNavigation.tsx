@@ -53,6 +53,8 @@ const navList = [
     IconSrc: ContactsIcon,
     subLinkList: [
       { id: 40, title: "Email", link: "example@mail.ru", email: true },
+      { id: 41, title: "Русская версия политики", link: "/policy/ru" },
+      { id: 42, title: "English Policy", link: "/policy/eng" },
     ],
   },
 ];

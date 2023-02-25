@@ -45,6 +45,17 @@
     }
   }
 
+  &_link {
+    display: block;
+    margin-left: 32px;
+    font-size: 14px;
+    color: $orange;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   &_success {
     color: $green_font;
     font-size: 16px;

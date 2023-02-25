@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Link from "next/link";
 
 import { Input, Textarea, Button, Checkbox } from "components/ui";
 
@@ -92,9 +93,15 @@ const ContactForm: FC = () => {
           onChange={(value) => {
             setPrivacy(value);
           }}
-          label="Я изучил лицензионное соглашение и согласен со всеми его условиями."
+          label="Я изучил лицензионное соглашение\политику и согласен со всеми условиями."
           isActive={privacy}
         />
+        <Link className={styles.form_link} href="/policy/ru">
+          Русская версия политики
+        </Link>
+        <Link className={styles.form_link} href="/policy/eng">
+          English Policy
+        </Link>
       </div>
 
       {isSuccess && (
