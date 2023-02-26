@@ -92,6 +92,7 @@ const TitleSlider: FC = () => {
           type="button"
           className={styles.slider_btn_bottom}
           onClick={scrollToAnchore}
+          aria-label="Опустить экран вниз к статьям"
         >
           <ArrowIcon width={52} height={52} />
         </button>

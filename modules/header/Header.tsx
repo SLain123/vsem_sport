@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import debounce from "debounce";
 
@@ -52,7 +51,21 @@ const Header: FC = () => {
       >
         <MainContainer className={styles.hr_content}>
           <Link href="/" className={styles.hr_logo_link}>
-            <Image src={Logo} alt="Логотип" fill />
+            <picture>
+              <source
+                srcSet={Logo.src}
+                media="(min-width: 1024px)"
+                width={300}
+                height={50}
+              />
+              <source
+                srcSet={Logo.src}
+                media="(min-width: 768px)"
+                width={264}
+                height={44}
+              />
+              <img src={Logo.src} alt="Логотип" width={220} height={36} />
+            </picture>
           </Link>
           <HrNavigation navList={navList} />
           {width < 1024 && <Humburger navList={navList} />}

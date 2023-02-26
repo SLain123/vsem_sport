@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { ArticleType } from "types/Article";
 
@@ -21,13 +22,15 @@ const ArticleList: FC<ArticleBlockType> = ({ title, articles }) => {
 
           return (
             <li key={id}>
-              <ArticleItem
-                title={title}
-                text={text}
-                keyWords={keyWords}
-                slug={slug}
-                preview={preview}
-              />
+              <LazyLoadComponent>
+                <ArticleItem
+                  title={title}
+                  text={text}
+                  keyWords={keyWords}
+                  slug={slug}
+                  preview={preview}
+                />
+              </LazyLoadComponent>
             </li>
           );
         })}

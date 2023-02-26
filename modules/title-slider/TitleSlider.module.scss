@@ -86,7 +86,7 @@
   &_img {
     width: 100%;
     object-fit: cover;
-    filter: brightness(0.6) grayscale(50%);
+    filter: brightness(0.6) grayscale(50%) blur(2px);
   }
 
   &_title {

@@ -71,6 +71,7 @@ a {
   font-weight: 700;
   src: local("Oswald"), url("../public/font/Oswald.woff2") format("woff2"),
     url("../public/font/Oswald.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -80,6 +81,7 @@ a {
   src: local("NunitoSans-Regular"),
     url("../public/font/NunitoSans-Regular.woff2") format("woff2"),
     url("../public/font/NunitoSans-Regular.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -89,4 +91,5 @@ a {
   src: local("NunitoSans-Bold"),
     url("../public/font/NunitoSans-SemiBold.woff2") format("woff2"),
     url("../public/font/NunitoSans-SemiBold.woff") format("woff");
+  font-display: swap;
 }

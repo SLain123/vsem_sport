@@ -14,10 +14,10 @@
     position: relative;
     width: 526px;
     height: 76px;
-    margin: 32px auto;
+    margin: 42px auto;
 
     @include adaptive("tab") {
-      margin: 24px auto 8px auto;
+      margin: 32px auto 8px auto;
       width: 420px;
       height: 63px;
     }
@@ -127,7 +127,7 @@
   }
 
   &_org_text {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 16px;
     color: $copyright_font;
     white-space: nowrap;
