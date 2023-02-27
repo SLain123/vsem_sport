@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import ReactMarkdown from "react-markdown";
 import YouTube, { YouTubeProps } from "react-youtube";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { BaseImageType } from "types/Common";
 
@@ -56,11 +57,13 @@ const Exercise: FC<Props> = ({ title, description, preview, youtube }) => {
         />
       </picture>
 
-      <ReactMarkdown
-        children={description}
-        className={styles.ex_text_block}
-        transformImageUri={transformImageUri}
-      />
+      <LazyLoadComponent>
+        <ReactMarkdown
+          children={description}
+          className={styles.ex_text_block}
+          transformImageUri={transformImageUri}
+        />
+      </LazyLoadComponent>
     </div>
   );
 };

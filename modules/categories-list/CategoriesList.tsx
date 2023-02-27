@@ -3,12 +3,12 @@ import React, { FC } from "react";
 import { Category } from "./components/Category";
 
 import styles from "./Categories.module.scss";
-import photo1 from "public/img/title-slides/1.jpg";
-import photo2 from "public/img/title-slides/2.jpg";
-import photo3 from "public/img/title-slides/3.jpg";
-import photo4 from "public/img/title-slides/4.jpg";
-import photo5 from "public/img/title-slides/5.jpg";
-import photo6 from "public/img/title-slides/6.jpg";
+import photo1 from "public/img/title-slides/1_mini.jpg";
+import photo2 from "public/img/title-slides/2_mini.jpg";
+import photo3 from "public/img/title-slides/3_mini.jpg";
+import photo4 from "public/img/title-slides/4_mini.jpg";
+import photo5 from "public/img/title-slides/5_mini.jpg";
+import photo6 from "public/img/title-slides/6_mini.jpg";
 
 export const categories = [
   {

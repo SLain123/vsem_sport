@@ -20,6 +20,7 @@ const Category: FC<PropsType> = ({ title, href, imgSrc, desc }) => {
           src={imgSrc}
           alt="Фон для карточки категории"
           className={styles.cat_img}
+          loading="lazy"
         />
         <h3 className={styles.cat_inner_title}>{title}</h3>
         {desc.map((par, indx) => (

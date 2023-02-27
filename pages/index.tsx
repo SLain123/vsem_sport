@@ -3,6 +3,7 @@ import Head from "next/head";
 import { NextPage } from "next";
 import { GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { Pagination } from "components/ui";
@@ -53,19 +54,21 @@ const MainPage: NextPage = () => {
         <TitleSlider />
         <MainContainer className="main_grid_container">
           <div>
-            {articles?.length ? (
-              <ArticleList title="Все статьи" articles={articles} />
-            ) : (
-              <ErrorBlock />
-            )}
-            {articleData?.meta?.pagination?.pageCount && (
-              <Pagination
-                page={1}
-                pageCount={articleData?.meta.pagination.pageCount}
-                masterLink="/all"
-                firstPageLink="/"
-              />
-            )}
+            <LazyLoadComponent>
+              {articles?.length ? (
+                <ArticleList title="Все статьи" articles={articles} />
+              ) : (
+                <ErrorBlock />
+              )}
+              {articleData?.meta?.pagination?.pageCount && (
+                <Pagination
+                  page={1}
+                  pageCount={articleData?.meta.pagination.pageCount}
+                  masterLink="/all"
+                  firstPageLink="/"
+                />
+              )}
+            </LazyLoadComponent>
           </div>
           <div>
             {topList.length ? (
