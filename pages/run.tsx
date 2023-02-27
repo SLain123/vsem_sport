@@ -50,7 +50,10 @@ const RunPage: NextPage = () => {
     <>
       <Head>
         <title>{`Vsem Sport Online - ${category}`}</title>
-        <meta name="description" content="Фитнес" />
+        <meta
+          name="description"
+          content="Бег. На нашем портале вы можете найти статьи, рекомендации, советы."
+        />
         <meta name="robots" content="all" />
       </Head>
       <BaseLayout>

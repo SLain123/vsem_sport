@@ -10,8 +10,11 @@ const SportsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Категории спорта</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>Все категории</title>
+        <meta
+          name="description"
+          content="Бег, фитнес, йога, кроссфит, бодибилдинг. Вы можете выбрать интересующую вас категорию спорта и получить статьи согласно выбранной тематике."
+        />
         <meta name="robots" content="all" />
       </Head>
       <BaseLayout>

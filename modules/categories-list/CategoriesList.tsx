@@ -76,9 +76,7 @@ export const categories = [
 const CategoriesList: FC = () => {
   return (
     <div className={styles.cat_container}>
-      <h2 className={styles.cat_title}>
-        Выберите интересующую вас категорию спорта:
-      </h2>
+      <h1 className={styles.cat_title}>Категории спорта:</h1>
       <ul className={styles.cat_list}>
         {categories.map(({ id, title, href, imgSrc, desc }) => (
           <Category

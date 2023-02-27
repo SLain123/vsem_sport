@@ -20,7 +20,7 @@ type Props = {
 const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
   return (
     <div className={styles.prog_container}>
-      <h2 className={styles.prog_header}>Программы тренировок</h2>
+      <h1 className={styles.prog_header}>Программы</h1>
       <Accordion
         allowMultipleExpanded
         allowZeroExpanded
@@ -45,10 +45,8 @@ const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
               uuid={id}
             >
               <AccordionItemHeading className={styles.prog_accordion_head_body}>
-                <AccordionItemButton
-                  className={styles.prog_accordion_head_text}
-                >
-                  {section}
+                <AccordionItemButton>
+                  <h2 className={styles.prog_accordion_head_text}>{section}</h2>
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel className={styles.prog_accordion_content}>

@@ -72,8 +72,11 @@ const ArticlePage: NextPage<{ slug: string }> = ({ slug }) => {
   return (
     <>
       <Head>
-        <title>{article?.title}</title>
-        <meta name="description" content={`${article?.keyWords}`} />
+        <title>{`Статья: ${article?.title}`}</title>
+        <meta
+          name="description"
+          content={`Статья на тему: ${article?.title}. ${article?.keyWords}`}
+        />
         <meta name="robots" content="all" />
       </Head>
 

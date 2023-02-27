@@ -10,7 +10,10 @@ const ContactsPage: NextPage = () => {
     <>
       <Head>
         <title>Контакты</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <meta
+          name="description"
+          content="На данной странице можно отправить форму с необходимым вам сообщением для администрации портала."
+        />
         <meta name="robots" content="all" />
       </Head>
       <BaseLayout>

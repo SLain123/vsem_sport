@@ -50,7 +50,10 @@ const ExercisesPage: NextPage = () => {
     <>
       <Head>
         <title>Все упражнения</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <meta
+          name="description"
+          content="Бег, фитнес, йога, кроссфит, бодибилдинг. Списки упражнений для различных категорий спорта. Подробное описание каждого из упражнений с фото и видео."
+        />
         <meta name="robots" content="all" />
       </Head>
 
@@ -58,7 +61,7 @@ const ExercisesPage: NextPage = () => {
         <MainContainer className="main_grid_container">
           <div>
             {exercises.length ? (
-              <ExerciseList title="Все упражнения" exercises={exercises} />
+              <ExerciseList title="Упражнения" exercises={exercises} />
             ) : (
               <ErrorBlock />
             )}

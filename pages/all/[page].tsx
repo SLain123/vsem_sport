@@ -47,12 +47,12 @@ const AllPage: NextPage<{ page: number }> = ({ page }) => {
   return (
     <>
       <Head>
-        <title>Vsem Sport Online</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>{`Vsem Sport Online - ${page} page`}</title>
         <meta
-          name="robots"
-          content={articles.length ? "all" : "noindex, nofollow"}
+          name="description"
+          content="Бег, фитнес, йога, кроссфит, бодибилдинг. На нашем портале вы можете найти статьи, рекомендации, советы. Программы тренировок и описание упражнений для различных категорий спорта."
         />
+        <meta name="robots" content="all" />
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">

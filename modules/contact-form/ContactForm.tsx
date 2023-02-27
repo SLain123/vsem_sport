@@ -38,6 +38,9 @@ const ContactForm: FC = () => {
 
   return (
     <form className={styles.form_container} onSubmit={formik.handleSubmit}>
+      <h1 className="visually-hidden">
+        Форма отправки для связи с администрацией
+      </h1>
       <div className={styles.form_field}>
         <label htmlFor="name" className={styles.form_label}>
           Имя:

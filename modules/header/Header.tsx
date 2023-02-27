@@ -64,7 +64,13 @@ const Header: FC = () => {
                 width={264}
                 height={44}
               />
-              <img src={Logo.src} alt="Логотип" width={220} height={36} />
+              <img
+                src={Logo.src}
+                alt="Логотип"
+                width={220}
+                height={36}
+                loading="eager"
+              />
             </picture>
           </Link>
           <HrNavigation navList={navList} />

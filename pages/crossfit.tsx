@@ -50,7 +50,10 @@ const CrossfitPage: NextPage = () => {
     <>
       <Head>
         <title>{`Vsem Sport Online - ${category}`}</title>
-        <meta name="description" content="Фитнес" />
+        <meta
+          name="description"
+          content="Кроссфит. На нашем портале вы можете найти статьи, рекомендации, советы."
+        />
         <meta name="robots" content="all" />
       </Head>
       <BaseLayout>

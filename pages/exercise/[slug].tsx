@@ -94,10 +94,10 @@ const ExercisePage: NextPage<Props> = ({ slug, bodyPart }) => {
   return (
     <>
       <Head>
-        <title>{exercise?.title}</title>
+        <title>{`${exercise?.title} - техника выполнения`}</title>
         <meta
           name="description"
-          content="Детальное описание последовательности действий для правильного выполнения упражнения"
+          content="Детальное описание последовательности действий. Правильная техника выполнения упражнения."
         />
         <meta name="robots" content="all" />
       </Head>

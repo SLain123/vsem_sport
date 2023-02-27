@@ -3,7 +3,6 @@ import Head from "next/head";
 import { NextPage } from "next";
 import { GetStaticProps } from "next/types";
 import { wrapper } from "redux/store";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { BaseLayout, MainContainer } from "components/wrappers";
 import { Pagination } from "components/ui";
@@ -46,7 +45,10 @@ const MainPage: NextPage = () => {
     <>
       <Head>
         <title>Vsem Sport Online</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <meta
+          name="description"
+          content="Бег, фитнес, йога, кроссфит, бодибилдинг. На нашем портале вы можете найти статьи, рекомендации, советы. Программы тренировок и описание упражнений для различных категорий спорта."
+        />
         <meta name="robots" content="all" />
 
         <link
@@ -131,21 +133,19 @@ const MainPage: NextPage = () => {
         <TitleSlider />
         <MainContainer className="main_grid_container">
           <div>
-            <LazyLoadComponent>
-              {articles?.length ? (
-                <ArticleList title="Все статьи" articles={articles} />
-              ) : (
-                <ErrorBlock />
-              )}
-              {articleData?.meta?.pagination?.pageCount && (
-                <Pagination
-                  page={1}
-                  pageCount={articleData?.meta.pagination.pageCount}
-                  masterLink="/all"
-                  firstPageLink="/"
-                />
-              )}
-            </LazyLoadComponent>
+            {articles?.length ? (
+              <ArticleList title="Все статьи" articles={articles} />
+            ) : (
+              <ErrorBlock />
+            )}
+            {articleData?.meta?.pagination?.pageCount && (
+              <Pagination
+                page={1}
+                pageCount={articleData?.meta.pagination.pageCount}
+                masterLink="/all"
+                firstPageLink="/"
+              />
+            )}
           </div>
           <div>
             {topList.length ? (

@@ -52,12 +52,12 @@ const BodybuildingAllPage: NextPage<{ page: number }> = ({ page }) => {
   return (
     <>
       <Head>
-        <title>{`Vsem Sport Online - ${category}`}</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>{`Vsem Sport Online - ${category} - ${page} page`}</title>
         <meta
-          name="robots"
-          content={articles.length ? "all" : "noindex, nofollow"}
+          name="description"
+          content="Бодибилдинг. На нашем портале вы можете найти статьи, рекомендации, советы."
         />
+        <meta name="robots" content="all" />
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">

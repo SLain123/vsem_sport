@@ -63,7 +63,7 @@ const ProgramsPage: NextPage<{ preExpanded: number }> = ({ preExpanded }) => {
   return (
     <>
       <Head>
-        <title>Программы тренировок</title>
+        <title>Все программы тренировок</title>
         <meta name="description" content="Бег, фитнес, йога, кроссфит" />
         <meta name="robots" content="all" />
       </Head>

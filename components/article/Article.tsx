@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import ReactMarkdown from "react-markdown";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { BaseImageType } from "types/Common";
 
@@ -68,13 +67,11 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
         />
       </picture>
 
-      <LazyLoadComponent>
-        <ReactMarkdown
-          children={text}
-          className={styles.art_text_block}
-          transformImageUri={transformImageUri}
-        />
-      </LazyLoadComponent>
+      <ReactMarkdown
+        children={text}
+        className={styles.art_text_block}
+        transformImageUri={transformImageUri}
+      />
     </div>
   );
 };

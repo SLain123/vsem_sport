@@ -9,8 +9,11 @@ const PolicyRuPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Vsem Sport Online - Policy Ru</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>Политика</title>
+        <meta
+          name="description"
+          content="Политика в отношении обработки персональных данных для РФ."
+        />
         <meta name="robots" content="all" />
       </Head>
 

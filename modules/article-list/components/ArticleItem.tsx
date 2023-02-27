@@ -58,7 +58,7 @@ const ArticleItem: FC<ArticleItemType> = ({
 
       <div className={styles.item_info_block}>
         <Link href={`/article/${slug}`} className={styles.item_img_link}>
-          <h3 className={styles.item_title}>{cropText(title, 120)}</h3>
+          <h2 className={styles.item_title}>{cropText(title, 120)}</h2>
         </Link>
         <p className={styles.item_text}>
           {removeMarkdown(cropText(text, 420))}

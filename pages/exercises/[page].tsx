@@ -59,18 +59,18 @@ const ExercisesAllPage: NextPage<{ page: number }> = ({ page }) => {
   return (
     <>
       <Head>
-        <title>Все упражнения</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>{`Все упражнения - ${page}`}</title>
         <meta
-          name="robots"
-          content={exercises.length ? "all" : "noindex, nofollow"}
+          name="description"
+          content="Бег, фитнес, йога, кроссфит, бодибилдинг. Списки упражнений для различных категорий спорта. Подробное описание каждого из упражнений с фото и видео."
         />
+        <meta name="robots" content="all" />
       </Head>
 
       <BaseLayout>
         <MainContainer className="main_grid_container">
           <div>
-            <ExerciseList title="Все упражнения" exercises={exercises} />
+            <ExerciseList title="Упражнения" exercises={exercises} />
             {exerciseData?.meta?.pagination?.pageCount && (
               <Pagination
                 page={page}

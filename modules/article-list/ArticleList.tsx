@@ -14,7 +14,7 @@ type ArticleBlockType = {
 const ArticleList: FC<ArticleBlockType> = ({ title, articles }) => {
   return (
     <div className={styles.artl_container}>
-      <h2 className={styles.artl_title}>{title}</h2>
+      <h1 className={styles.artl_title}>{title}</h1>
       <ul className={styles.artl_list}>
         {articles.map(({ id, attributes }) => {
           const { title, text, keyWords, slug, preview } = attributes;

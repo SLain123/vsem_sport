@@ -9,8 +9,8 @@ const PolicyEngPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Vsem Sport Online - Policy Eng</title>
-        <meta name="description" content="Бег, фитнес, йога, кроссфит" />
+        <title>Policy</title>
+        <meta name="description" content="Policy for rest of the World." />
         <meta name="robots" content="all" />
       </Head>
 
