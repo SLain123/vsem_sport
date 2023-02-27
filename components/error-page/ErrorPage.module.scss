@@ -1,0 +1,76 @@
+@import "styles/variables.scss";
+@import "styles/mixin.scss";
+
+.ep {
+  &_container {
+    margin: 0 auto;
+    position: relative;
+    height: 75vh;
+    min-height: 480px;
+    
+  }
+
+  &_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../public/img//lost.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom 0px center;
+    filter: blur(3px) saturate(20%);
+
+    @include adaptive("tab") {
+      background-position: bottom 0px left;
+    }
+  }
+
+  &_info_block {
+    font-family: $header-font;
+    height: 100%;
+    z-index: 1;
+    position: relative;
+    padding: 24px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &_code {
+    font-size: 120px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 10px;
+  }
+
+  &_message {
+    font-size: 64px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 100px;
+
+    @include adaptive("tab") {
+      font-size: 48px;
+    }
+
+    @include adaptive("mob-l") {
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+  }
+
+  &_btn {
+    padding: 12px 32px;
+    background: $orange;
+    border-radius: 2px;
+    opacity: 0.9;
+    color: white;
+    font-family: $main-font;
+    font-size: 18px;
+    white-space: nowrap;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
