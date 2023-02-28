@@ -32,13 +32,19 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
   const transformImageUri = (src: string) => `${baseUrl}${src}`;
 
   return (
-    <div className={styles.art_container}>
-      <h1 className={styles.art_title}>{title}</h1>
+    <div
+      className={styles.art_container}
+      itemScope
+      itemType="https://schema.org/Article"
+    >
+      <h1 className={styles.art_title} itemProp="name">
+        {title}
+      </h1>
 
       {keyWords.length && (
         <div className={styles.art_word_container}>
           {keyWords.map((word) => (
-            <span key={word} className={styles.art_word_item}>
+            <span itemProp="about" key={word} className={styles.art_word_item}>
               {word}
             </span>
           ))}
@@ -67,11 +73,15 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
         />
       </picture>
 
-      <ReactMarkdown
-        children={text}
-        className={styles.art_text_block}
-        transformImageUri={transformImageUri}
-      />
+      <div itemProp="articleBody">
+        <ReactMarkdown
+          children={text}
+          className={styles.art_text_block}
+          transformImageUri={transformImageUri}
+        />
+      </div>
+
+      <meta itemProp="image" content={imgUrl.mob}></meta>
     </div>
   );
 };

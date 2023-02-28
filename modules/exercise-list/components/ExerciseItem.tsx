@@ -36,8 +36,16 @@ const ExerciseItem: FC<ExerciseItemType> = ({
     : `${baseUrl}${preview.data.attributes.url}`;
 
   return (
-    <div className={styles.item_container}>
-      <Link href={`/exercise/${slug}`} className={styles.item_img_container}>
+    <div
+      className={styles.item_container}
+      itemScope
+      itemType="https://schema.org/Article"
+    >
+      <Link
+        href={`/exercise/${slug}`}
+        className={styles.item_img_container}
+        itemProp="url"
+      >
         <img
           className={styles.item_img}
           src={imgUrl}
@@ -49,20 +57,24 @@ const ExerciseItem: FC<ExerciseItemType> = ({
       </Link>
       <div className={styles.item_info_block}>
         <Link href={`/exercise/${slug}`} className={styles.item_img_link}>
-          <h2 className={styles.item_title}>{cropText(title, 120)}</h2>
+          <h2 itemProp="name" className={styles.item_title}>
+            {cropText(title, 120)}
+          </h2>
         </Link>
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative" }} itemProp="about">
           <p className={styles.item_desc}>
             Упражнение на <span>{partOfBody}</span>
           </p>
-          <p className={styles.item_desc}>
+          <p className={styles.item_desc} itemProp="about">
             Оборудование: <span>{equipment}</span>
           </p>
-          <p className={styles.item_desc}>
+          <p className={styles.item_desc} itemProp="about">
             Уровень сложности: <span>{level}</span>
           </p>
         </div>
       </div>
+
+      <meta itemProp="image" content={imgUrl}></meta>
     </div>
   );
 };

@@ -37,8 +37,12 @@ const ArticleItem: FC<ArticleItemType> = ({
   };
 
   return (
-    <div className={styles.item_container}>
-      <Link href={`/article/${slug}`}>
+    <div
+      className={styles.item_container}
+      itemScope
+      itemType="https://schema.org/Article"
+    >
+      <Link href={`/article/${slug}`} itemProp="url">
         <picture>
           <source
             srcSet={imgUrl.tab}
@@ -58,21 +62,29 @@ const ArticleItem: FC<ArticleItemType> = ({
 
       <div className={styles.item_info_block}>
         <Link href={`/article/${slug}`} className={styles.item_img_link}>
-          <h2 className={styles.item_title}>{cropText(title, 120)}</h2>
+          <h2 itemProp="name" className={styles.item_title}>
+            {cropText(title, 120)}
+          </h2>
         </Link>
-        <p className={styles.item_text}>
+        <p className={styles.item_text} itemProp="articleBody">
           {removeMarkdown(cropText(text, 420))}
         </p>
         <div className={styles.item_key_words_block}>
           {keyWords.map((word, indx) =>
             indx <= 5 ? (
-              <span key={word} className={styles.item_key_word}>
+              <span
+                itemProp="about"
+                key={word}
+                className={styles.item_key_word}
+              >
                 {word}
               </span>
             ) : null
           )}
         </div>
       </div>
+
+      <meta itemProp="image" content={imgUrl.mob}></meta>
     </div>
   );
 };

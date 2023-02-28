@@ -13,7 +13,11 @@ type PropsType = {
 
 const Category: FC<PropsType> = ({ title, href, imgSrc, desc }) => {
   return (
-    <li className={styles.cat_item}>
+    <li
+      className={styles.cat_item}
+      itemScope
+      itemType="https://schema.org/CategoryCodeSet"
+    >
       <Link href={href}>
         <Image
           fill
@@ -22,7 +26,9 @@ const Category: FC<PropsType> = ({ title, href, imgSrc, desc }) => {
           className={styles.cat_img}
           loading="lazy"
         />
-        <h3 className={styles.cat_inner_title}>{title}</h3>
+        <h3 className={styles.cat_inner_title} itemProp="name">
+          {title}
+        </h3>
         {desc.map((par, indx) => (
           <p key={indx} className={styles.cat_desc}>
             {par}

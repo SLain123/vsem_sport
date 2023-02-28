@@ -29,13 +29,16 @@ const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
       >
         {programInfo.map(({ id, section, programs }) => {
           const programList = programs.map(({ id, title, slug }) => (
-            <Link
-              key={id}
-              href={`/program/${slug}`}
-              className={styles.prog_accordion_link}
-            >
-              {title}
-            </Link>
+            <div itemScope itemType="https://schema.org/Article">
+              <Link
+                key={id}
+                href={`/program/${slug}`}
+                className={styles.prog_accordion_link}
+                itemProp="url"
+              >
+                <span itemProp="name">{title}</span>
+              </Link>
+            </div>
           ));
 
           return (
@@ -44,9 +47,18 @@ const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
               key={id}
               uuid={id}
             >
-              <AccordionItemHeading className={styles.prog_accordion_head_body}>
+              <AccordionItemHeading
+                className={styles.prog_accordion_head_body}
+                itemScope
+                itemType="https://schema.org/CategoryCodeSet"
+              >
                 <AccordionItemButton>
-                  <h2 className={styles.prog_accordion_head_text}>{section}</h2>
+                  <h2
+                    className={styles.prog_accordion_head_text}
+                    itemProp="name"
+                  >
+                    {section}
+                  </h2>
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel className={styles.prog_accordion_content}>

@@ -33,8 +33,14 @@ const Exercise: FC<Props> = ({ title, description, preview, youtube }) => {
   const opts: YouTubeProps["opts"] = { width: "100%", height: "100%" };
 
   return (
-    <div className={styles.ex_container}>
-      <h1 className={styles.ex_title}>{title}</h1>
+    <div
+      className={styles.ex_container}
+      itemScope
+      itemType="https://schema.org/Article"
+    >
+      <h1 className={styles.ex_title} itemProp="name">
+        {title}
+      </h1>
 
       {youtube && (
         <YouTube videoId={youtube} opts={opts} className={styles.ex_youtube} />
@@ -56,11 +62,15 @@ const Exercise: FC<Props> = ({ title, description, preview, youtube }) => {
         />
       </picture>
 
-      <ReactMarkdown
-        children={description}
-        className={styles.ex_text_block}
-        transformImageUri={transformImageUri}
-      />
+      <div itemProp="articleBody">
+        <ReactMarkdown
+          children={description}
+          className={styles.ex_text_block}
+          transformImageUri={transformImageUri}
+        />
+      </div>
+
+      <meta itemProp="image" content={imgUrl.mob}></meta>
     </div>
   );
 };
