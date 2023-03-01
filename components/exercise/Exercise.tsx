@@ -58,7 +58,8 @@ const Exercise: FC<Props> = ({ title, description, preview, youtube }) => {
           className={styles.ex_img}
           src={imgUrl.mob}
           alt={title}
-          width="100%"
+          width={400}
+          height={266}
         />
       </picture>
 

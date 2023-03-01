@@ -65,6 +65,10 @@ const ExercisesAllPage: NextPage<{ page: number }> = ({ page }) => {
           content="Бег, фитнес, йога, кроссфит, бодибилдинг. Списки упражнений для различных категорий спорта. Подробное описание каждого из упражнений с фото и видео."
         />
         <meta name="robots" content="all" />
+        <link
+          rel="canonical"
+          href={`${process.env.NEXT_PUBLIC_URL}/exercises`}
+        />
       </Head>
 
       <BaseLayout>

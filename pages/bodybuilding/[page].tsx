@@ -58,6 +58,7 @@ const BodybuildingAllPage: NextPage<{ page: number }> = ({ page }) => {
           content="Бодибилдинг. На нашем портале вы можете найти статьи, рекомендации, советы."
         />
         <meta name="robots" content="all" />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">

@@ -68,7 +68,7 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
           className={styles.art_img}
           src={imgUrl.mob}
           alt={title}
-          width="100%"
+          width={400}
           height={266}
         />
       </picture>

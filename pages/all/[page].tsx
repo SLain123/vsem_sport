@@ -53,6 +53,7 @@ const AllPage: NextPage<{ page: number }> = ({ page }) => {
           content="Бег, фитнес, йога, кроссфит, бодибилдинг. На нашем портале вы можете найти статьи, рекомендации, советы. Программы тренировок и описание упражнений для различных категорий спорта."
         />
         <meta name="robots" content="all" />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">
