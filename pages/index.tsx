@@ -20,7 +20,7 @@ import {
 import { getTopByName, useGetTopByNameQuery, topApi } from "redux/api/topApi";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  ({ dispatch }) =>
+  ({ dispatch, getState }) =>
     async () => {
       dispatch(getAllArticles.initiate(1));
       dispatch(getTopByName.initiate("all-sports"));
@@ -28,7 +28,12 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         ...dispatch(articlesApi.util.getRunningQueriesThunk()),
         ...dispatch(topApi.util.getRunningQueriesThunk()),
       ]);
-
+      const data = getAllArticles.select(1)(getState());
+      console.log(
+        "=====================DATA START=================",
+        JSON.stringify(data.data),
+        "=====================DATA END================="
+      );
       return {
         props: {},
       };
@@ -41,6 +46,9 @@ const MainPage: NextPage = () => {
   const articles = articleData?.data ? articleData.data : [];
   const topList = topData?.data?.length ? topData.data[0].attributes.list : [];
 
+  React.useEffect(() => {
+    console.log(articleData);
+  }, [articleData]);
   return (
     <>
       <Head>
