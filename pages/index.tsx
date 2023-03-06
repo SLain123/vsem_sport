@@ -36,19 +36,20 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       );
       return {
         props: {},
+	revalidate: 60
       };
     }
 );
 
 const MainPage: NextPage = () => {
-  const { data: articleData } = useGetAllArticlesQuery(1);
+  const { data: articleData, isError, isLoading, error } = useGetAllArticlesQuery(1);
   const { data: topData } = useGetTopByNameQuery("all-sports");
   const articles = articleData?.data ? articleData.data : [];
   const topList = topData?.data?.length ? topData.data[0].attributes.list : [];
 
-  React.useEffect(() => {
-    console.log(articleData);
-  }, [articleData]);
+   React.useEffect(() => {
+    console.log(articleData, isError, isLoading, error);
+  }, [articleData, isError, isLoading, error]);
   return (
     <>
       <Head>
