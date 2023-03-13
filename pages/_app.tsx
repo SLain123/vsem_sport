@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import "react-hamburger-menus/dist/style.css";
 
 import React, { FC, useEffect } from "react";
 import Head from "next/head";
@@ -13,6 +14,7 @@ import { wrapper } from "redux/store";
 
 const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   useEffect(() => {
+    console.log("serviceWorker in", navigator);
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("/sw.js").then(

@@ -46,6 +46,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
       return {
         props: { slug },
+        revalidate: process.env.NEXT_PUBLIC_REVALIDATE
+          ? +process.env.NEXT_PUBLIC_REVALIDATE
+          : 60,
       };
     }
 );
@@ -91,7 +94,9 @@ const ArticlePage: NextPage<{ slug: string }> = ({ slug }) => {
               comments={article.comments}
             />
           )}
-          <Banner />
+          <aside>
+            <Banner />
+          </aside>
         </MainContainer>
 
         <MainContainer>

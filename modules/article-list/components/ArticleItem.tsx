@@ -37,7 +37,7 @@ const ArticleItem: FC<ArticleItemType> = ({
   };
 
   return (
-    <div
+    <article
       className={styles.item_container}
       itemScope
       itemType="https://schema.org/Article"
@@ -70,22 +70,24 @@ const ArticleItem: FC<ArticleItemType> = ({
           {removeMarkdown(cropText(text, 420))}
         </p>
         <div className={styles.item_key_words_block}>
-          {keyWords.map((word, indx) =>
-            indx <= 5 ? (
-              <span
-                itemProp="about"
-                key={word}
-                className={styles.item_key_word}
-              >
-                {word}
-              </span>
-            ) : null
-          )}
+          {keyWords?.length
+            ? keyWords.map((word, indx) =>
+                indx <= 5 ? (
+                  <span
+                    itemProp="about"
+                    key={word}
+                    className={styles.item_key_word}
+                  >
+                    {word}
+                  </span>
+                ) : null
+              )
+            : null}
         </div>
       </div>
 
       <meta itemProp="image" content={imgUrl.mob}></meta>
-    </div>
+    </article>
   );
 };
 

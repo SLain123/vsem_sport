@@ -38,6 +38,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
       return {
         props: { page },
+        revalidate: process.env.NEXT_PUBLIC_REVALIDATE
+          ? +process.env.NEXT_PUBLIC_REVALIDATE
+          : 60,
       };
     }
 );
@@ -62,18 +65,20 @@ const RunAllPage: NextPage<{ page: number }> = ({ page }) => {
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">
-          <div>
+          <section>
             <ArticleList title="Все статьи о беге" articles={articles} />
-            {data?.meta?.pagination?.pageCount && (
+            {data?.meta?.pagination?.pageCount ? (
               <Pagination
                 page={page}
                 pageCount={data?.meta.pagination.pageCount}
                 masterLink={`/${category}`}
                 firstPageLink={`/${category}`}
               />
-            )}
-          </div>
-          <Banner />
+            ) : null}
+          </section>
+          <aside>
+            <Banner />
+          </aside>
         </MainContainer>
       </BaseLayout>
     </>

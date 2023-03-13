@@ -29,7 +29,7 @@ const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
       >
         {programInfo.map(({ id, section, programs }) => {
           const programList = programs.map(({ id, title, slug }) => (
-            <div
+            <article
               itemScope
               itemType="https://schema.org/Article"
               className={styles.prog_accordion_link_container}
@@ -42,7 +42,7 @@ const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
               >
                 <span itemProp="name">{title}</span>
               </Link>
-            </div>
+            </article>
           ));
 
           return (

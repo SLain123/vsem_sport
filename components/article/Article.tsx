@@ -41,7 +41,7 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
         {title}
       </h1>
 
-      {keyWords.length && (
+      {keyWords?.length ? (
         <div className={styles.art_word_container}>
           {keyWords.map((word) => (
             <span itemProp="about" key={word} className={styles.art_word_item}>
@@ -49,7 +49,7 @@ const Article: FC<Props> = ({ title, keyWords, preview, text }) => {
             </span>
           ))}
         </div>
-      )}
+      ) : null}
 
       <picture>
         <source

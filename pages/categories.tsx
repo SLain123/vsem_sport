@@ -20,7 +20,9 @@ const SportsPage: NextPage = () => {
       <BaseLayout>
         <MainContainer className="main_grid_container">
           <CategoriesList />
-          <Banner />
+          <aside>
+            <Banner />
+          </aside>
         </MainContainer>
       </BaseLayout>
     </>

@@ -33,6 +33,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
       return {
         props: {},
+        revalidate: process.env.NEXT_PUBLIC_REVALIDATE
+          ? +process.env.NEXT_PUBLIC_REVALIDATE
+          : 60,
       };
     }
 );
@@ -59,23 +62,23 @@ const YogaPage: NextPage = () => {
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">
-          <div>
+          <section>
             {articles?.length ? (
               <ArticleList title="Все статьи о йоге" articles={articles} />
             ) : (
               <ErrorBlock />
             )}
-            {articleData?.meta?.pagination?.pageCount && (
+            {articleData?.meta?.pagination?.pageCount ? (
               <Pagination
                 page={1}
                 pageCount={articleData?.meta.pagination.pageCount}
                 masterLink={`/${category}`}
                 firstPageLink={`/${category}`}
               />
-            )}
-          </div>
+            ) : null}
+          </section>
 
-          <div>
+          <aside>
             {topList.length ? (
               <TopBlock
                 topList={topList}
@@ -83,7 +86,7 @@ const YogaPage: NextPage = () => {
               />
             ) : null}
             <CategorySide />
-          </div>
+          </aside>
         </MainContainer>
       </BaseLayout>
     </>

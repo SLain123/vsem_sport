@@ -70,6 +70,18 @@ a {
   overflow: hidden;
 }
 
+span.rhm-gn-navigation__icon {
+  background-color: white;
+
+  &::before {
+    background-color: white;
+  }
+
+  &::after {
+    background-color: white;
+  }
+}
+
 @media only screen and (max-width: 767.98px) {
   .main_grid_container {
     display: grid;

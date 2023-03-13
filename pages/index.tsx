@@ -20,7 +20,7 @@ import {
 import { getTopByName, useGetTopByNameQuery, topApi } from "redux/api/topApi";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  ({ dispatch, getState }) =>
+  ({ dispatch }) =>
     async () => {
       dispatch(getAllArticles.initiate(1));
       dispatch(getTopByName.initiate("all-sports"));
@@ -28,28 +28,22 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         ...dispatch(articlesApi.util.getRunningQueriesThunk()),
         ...dispatch(topApi.util.getRunningQueriesThunk()),
       ]);
-      const data = getAllArticles.select(1)(getState());
-      console.log(
-        "=====================DATA START=================",
-        JSON.stringify(data.data),
-        "=====================DATA END================="
-      );
+
       return {
         props: {},
-	revalidate: 60
+        revalidate: process.env.NEXT_PUBLIC_REVALIDATE
+          ? +process.env.NEXT_PUBLIC_REVALIDATE
+          : 60,
       };
     }
 );
 
 const MainPage: NextPage = () => {
-  const { data: articleData, isError, isLoading, error } = useGetAllArticlesQuery(1);
+  const { data: articleData } = useGetAllArticlesQuery(1);
   const { data: topData } = useGetTopByNameQuery("all-sports");
   const articles = articleData?.data ? articleData.data : [];
   const topList = topData?.data?.length ? topData.data[0].attributes.list : [];
 
-   React.useEffect(() => {
-    console.log(articleData, isError, isLoading, error);
-  }, [articleData, isError, isLoading, error]);
   return (
     <>
       <Head>
@@ -64,22 +58,24 @@ const MainPage: NextPage = () => {
       <BaseLayout>
         <TitleSlider />
         <MainContainer className="main_grid_container">
-          <div>
+          <section>
             {articles?.length ? (
               <ArticleList title="Все статьи" articles={articles} />
             ) : (
               <ErrorBlock />
             )}
-            {articleData?.meta?.pagination?.pageCount && (
-              <Pagination
-                page={1}
-                pageCount={articleData?.meta.pagination.pageCount}
-                masterLink="/all"
-                firstPageLink="/"
-              />
-            )}
-          </div>
-          <div>
+            {articleData?.meta?.pagination?.pageCount ? (
+              <nav aria-label="Pagination">
+                <Pagination
+                  page={1}
+                  pageCount={articleData?.meta.pagination.pageCount}
+                  masterLink="/all"
+                  firstPageLink="/"
+                />
+              </nav>
+            ) : null}
+          </section>
+          <aside>
             {topList.length ? (
               <TopBlock
                 topList={topList}
@@ -87,7 +83,7 @@ const MainPage: NextPage = () => {
               />
             ) : null}
             <CategorySide />
-          </div>
+          </aside>
         </MainContainer>
       </BaseLayout>
     </>

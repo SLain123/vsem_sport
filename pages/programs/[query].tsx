@@ -50,6 +50,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         props: {
           preExpanded,
         },
+        revalidate: process.env.NEXT_PUBLIC_REVALIDATE
+          ? +process.env.NEXT_PUBLIC_REVALIDATE
+          : 60,
       };
     }
 );
@@ -69,7 +72,7 @@ const ProgramsPage: NextPage<{ preExpanded: number }> = ({ preExpanded }) => {
       </Head>
       <BaseLayout>
         <MainContainer className="main_grid_container">
-          <div>
+          <section>
             {programInfo.length ? (
               <ProgramList
                 programInfo={programInfo}
@@ -78,8 +81,8 @@ const ProgramsPage: NextPage<{ preExpanded: number }> = ({ preExpanded }) => {
             ) : (
               <ErrorBlock />
             )}
-          </div>
-          <div>
+          </section>
+          <aside>
             {topList.length ? (
               <TopBlock
                 topList={topList}
@@ -87,7 +90,7 @@ const ProgramsPage: NextPage<{ preExpanded: number }> = ({ preExpanded }) => {
               />
             ) : null}
             <Banner />
-          </div>
+          </aside>
         </MainContainer>
       </BaseLayout>
     </>

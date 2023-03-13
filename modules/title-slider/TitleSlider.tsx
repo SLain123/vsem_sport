@@ -97,7 +97,7 @@ const TitleSlider: FC = () => {
           <ArrowIcon width={52} height={52} />
         </button>
       </div>
-      <div ref={anchorRef} />
+      <div ref={anchorRef} data-anchor />
     </>
   );
 };

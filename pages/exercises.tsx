@@ -33,6 +33,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
       return {
         props: {},
+        revalidate: process.env.NEXT_PUBLIC_REVALIDATE
+          ? +process.env.NEXT_PUBLIC_REVALIDATE
+          : 60,
       };
     }
 );
@@ -59,22 +62,24 @@ const ExercisesPage: NextPage = () => {
 
       <BaseLayout>
         <MainContainer className="main_grid_container">
-          <div>
+          <section>
             {exercises.length ? (
               <ExerciseList title="Упражнения" exercises={exercises} />
             ) : (
               <ErrorBlock />
             )}
-            {exerciseData?.meta?.pagination?.pageCount && (
+            {exerciseData?.meta?.pagination?.pageCount ? (
               <Pagination
                 page={1}
                 pageCount={exerciseData?.meta.pagination.pageCount}
                 masterLink="/exercises"
                 firstPageLink="/exercises"
               />
-            )}
-          </div>
-          <Banner />
+            ) : null}
+          </section>
+          <aside>
+            <Banner />
+          </aside>
         </MainContainer>
       </BaseLayout>
     </>

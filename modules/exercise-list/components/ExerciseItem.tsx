@@ -36,7 +36,7 @@ const ExerciseItem: FC<ExerciseItemType> = ({
     : `${baseUrl}${preview.data.attributes.url}`;
 
   return (
-    <div
+    <article
       className={styles.item_container}
       itemScope
       itemType="https://schema.org/Article"
@@ -75,7 +75,7 @@ const ExerciseItem: FC<ExerciseItemType> = ({
       </div>
 
       <meta itemProp="image" content={imgUrl}></meta>
-    </div>
+    </article>
   );
 };
 
