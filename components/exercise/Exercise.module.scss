@@ -171,6 +171,7 @@
         justify-content: center;
         max-width: 1020px;
         flex-flow: wrap;
+        object-fit: cover;
       }
     }
 
@@ -178,6 +179,7 @@
       border-radius: 2px;
       aspect-ratio: 3/2;
       max-width: 1020px;
+      object-fit: cover;
 
       @include adaptive("desk") {
         max-width: 860px;

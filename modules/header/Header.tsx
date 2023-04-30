@@ -76,7 +76,11 @@ const Header: FC = () => {
           <HrNavigation navList={navList} />
         </MainContainer>
       </header>
-      {width < 1024 && <Humburger navList={navList} />}
+      {width < 1024 && (
+        <Humburger
+          navList={[{ id: 4, title: "Главная", link: "/" }, ...navList]}
+        />
+      )}
       <div className={styles.hr_stub} />
     </>
   );
