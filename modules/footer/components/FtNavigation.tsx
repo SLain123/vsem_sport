@@ -59,7 +59,7 @@ const navList = [
       { id: 34, title: "Подтягивания", link: "/exercise/pull-ups" },
       {
         id: 35,
-        title: "Короткие интвервалы",
+        title: "Короткие интервалы",
         link: "/exercise/short-intervals",
       },
       { id: 36, title: "Становая тяга", link: "/exercise/deadlift" },

@@ -14,7 +14,6 @@ import { wrapper } from "redux/store";
 
 const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   useEffect(() => {
-    console.log("serviceWorker in", navigator);
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/sw.js").then(
         function (registration) {
