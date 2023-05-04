@@ -15,14 +15,17 @@ const navList = [
     link: "/programs/all",
     IconSrc: TrainingsIcon,
     subLinkList: [
-      { id: 10, title: "Набор мышечной массы", link: "/programs/up_mass" },
-      { id: 11, title: "Сбросить вес", link: "/programs/down_weight" },
+      { id: 10, title: "Набор мышечной массы", link: "/programs/mass-up" },
+      { id: 11, title: "Сброс веса и рельеф", link: "/programs/down-weight" },
       {
         id: 12,
-        title: "Увеличить выносливость",
-        link: "/programs/increase_stamina",
+        title: "Увеличение силовых показателей",
+        link: "/programs/strength-up",
       },
-      { id: 13, title: "Женские программы", link: "/programs/women" },
+      { id: 13, title: "Кроссфит (WOD's)", link: "/programs/crossfit" },
+      { id: 14, title: "Беговые программы", link: "/programs/run" },
+      { id: 15, title: "Ударные виды спорта", link: "/programs/fight-sports" },
+      { id: 16, title: "Разное", link: "/programs/other-training" },
     ],
   },
   {
@@ -44,7 +47,24 @@ const navList = [
     title: "Описание упражнений",
     link: "/exercises",
     IconSrc: ExerciseIcon,
-    subLinkList: [{ id: 30, title: "Что то о беге", link: "/exercises" }],
+    subLinkList: [
+      { id: 30, title: "Жим лежа", link: "/exercise/bench-press-barbell" },
+      { id: 31, title: "Прыжки на бокс", link: "/exercise/jumping-on-box" },
+      { id: 32, title: "Скалолаз", link: "/exercise/rock-climber" },
+      {
+        id: 33,
+        title: "Переворачивание шины",
+        link: "/exercise/turning-over-tire",
+      },
+      { id: 34, title: "Подтягивания", link: "/exercise/pull-ups" },
+      {
+        id: 35,
+        title: "Короткие интвервалы",
+        link: "/exercise/short-intervals",
+      },
+      { id: 36, title: "Становая тяга", link: "/exercise/deadlift" },
+      { id: 37, title: "Фартлек", link: "/exercise/fartlek" },
+    ],
   },
   {
     id: 3,
@@ -52,7 +72,7 @@ const navList = [
     link: "/contacts",
     IconSrc: ContactsIcon,
     subLinkList: [
-      { id: 40, title: "Email", link: "example@mail.ru", email: true },
+      { id: 40, title: "Email", link: "slayn2012@gmail.com", email: true },
       { id: 41, title: "Русская версия политики", link: "/policy/ru" },
       { id: 42, title: "English Policy", link: "/policy/eng" },
     ],
