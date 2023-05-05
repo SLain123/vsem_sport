@@ -1,8 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
+import { getCspRules } from "utils/getCspRules";
+
 export default function Document() {
   return (
     <Html lang="ru">
+      <meta http-equiv="Content-Security-Policy" content={getCspRules()} />
       <Head />
       <body>
         <Main />

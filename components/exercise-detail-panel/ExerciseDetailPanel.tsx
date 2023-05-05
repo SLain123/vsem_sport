@@ -51,7 +51,9 @@ const ExerciseDetailPanel: FC<Props> = ({
         <div className={styles.edp_extra_container}>
           <p className={styles.edp_extra_header}>Вспомогательные мышцы:</p>
           {extraBodyParts.map((muscle) => (
-            <p className={styles.edp_extra_item}>{muscle}</p>
+            <p key={muscle} className={styles.edp_extra_item}>
+              {muscle}
+            </p>
           ))}
         </div>
       ) : null}

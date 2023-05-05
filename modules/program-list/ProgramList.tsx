@@ -30,12 +30,12 @@ const ProgramList: FC<Props> = ({ programInfo, preExpanded }) => {
         {programInfo.map(({ id, section, programs }) => {
           const programList = programs.map(({ id, title, slug }) => (
             <article
+              key={id}
               itemScope
               itemType="https://schema.org/Article"
               className={styles.prog_accordion_link_container}
             >
               <Link
-                key={id}
                 href={`/program/${slug}`}
                 className={styles.prog_accordion_link}
                 itemProp="url"
