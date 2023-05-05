@@ -164,6 +164,9 @@
     white-space: nowrap;
     margin-bottom: 8px;
     text-transform: lowercase;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @include adaptive("tab-l") {
       font-size: 14px;
