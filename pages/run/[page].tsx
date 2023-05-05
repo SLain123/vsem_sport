@@ -8,6 +8,7 @@ import { BaseLayout, MainContainer } from "components/wrappers";
 import { Pagination } from "components/ui";
 import { Banner } from "components/banner";
 import { ArticleList } from "modules/article-list";
+import { CategorySide } from "modules/categories-list";
 
 import {
   getAllArticlesByCategories,
@@ -76,7 +77,9 @@ const RunAllPage: NextPage<{ page: number }> = ({ page }) => {
               />
             ) : null}
           </section>
+
           <aside>
+            <CategorySide />
             <Banner />
           </aside>
         </MainContainer>
