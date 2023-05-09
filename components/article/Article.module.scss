@@ -53,10 +53,9 @@
     margin: 0 auto 32px auto;
     aspect-ratio: 3/2;
     min-height: 266px;
-    width: 100%;
-    
-    @include adaptive("mob-m") {
-      max-width: 330px;
+
+    @include adaptive("mob-l") {
+      max-width: calc(100% - 16px);
     }
   }
 
